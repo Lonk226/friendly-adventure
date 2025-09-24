@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2gx6gcfmpxxe"]
+
+[ext_resource type="Texture2D" uid="uid://cwib3r5qdmgru" path="res://Assets/The Guy.png" id="1_e3r4w"]
+[ext_resource type="Script" uid="uid://5cgvxxmylp4h" path="res://Scripts/ghost.gd" id="2_108wt"]
+
+[node name="Ghost" type="Sprite2D"]
+self_modulate = Color(0.57, 0.57, 0.57, 0.490196)
+z_index = -1
+texture = ExtResource("1_e3r4w")
+hframes = 4
+vframes = 6
+frame = 2
+region_rect = Rect2(0, 0, 32, 32)
+script = ExtResource("2_108wt")

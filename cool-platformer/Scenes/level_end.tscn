@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://hj4uee7j5bcq"]
+
+[ext_resource type="Script" uid="uid://djt83cualfg5k" path="res://Scripts/level_end.gd" id="1_r8lt8"]
+[ext_resource type="Texture2D" uid="uid://ciponrys0dlc6" path="res://Assets/Portal.png" id="2_r8lt8"]
+[ext_resource type="Texture2D" uid="uid://dsla7py4qk4lt" path="res://Assets/light.png" id="3_0xttq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gyu8x"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s7we8"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6xfj2"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fpn1k"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ign1a"]
+light_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyu8x"]
+radius = 61.0082
+
+[node name="Level End" type="Area2D"]
+script = ExtResource("1_r8lt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_gyu8x")
+position = Vector2(-7.15256e-07, -2.14577e-06)
+scale = Vector2(0.953125, 0.953125)
+texture = ExtResource("2_r8lt8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_s7we8")
+position = Vector2(-1.19209e-06, -1.43051e-06)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_r8lt8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_6xfj2")
+position = Vector2(-1.78814e-06, 2.86102e-06)
+scale = Vector2(0.8125, 0.8125)
+texture = ExtResource("2_r8lt8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_fpn1k")
+position = Vector2(7.77841e-06, -4.76837e-06)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_r8lt8")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_ign1a")
+position = Vector2(-9.53674e-07, -9.53674e-07)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("2_r8lt8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gyu8x")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.6
+texture = ExtResource("3_0xttq")
+texture_scale = 0.25
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
