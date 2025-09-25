@@ -12,6 +12,7 @@ var ghost_node = preload("res://Scenes/ghost.tscn")
 var ground_speed: float = 230
 var air_speed: float = 200
 var side_flipping_speed: float = 300
+var roll_speed: float = 450
 var jump_height: float = 70 # height of jump
 var jump_time_to_peak: float = 0.42 # length of jump
 var jump_time_to_descent: float = 0.28 # length of fall
@@ -267,12 +268,12 @@ func roll():
 		rolling = true
 		charge_value += charge_up
 		roll_particles.emitting = true
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.4).timeout
 		rolling = false
 		roll_particles.emitting = false
 		velocity.x = 230 * direct
 	if rolling == true:
-		velocity.x = 370 * direct
+		velocity.x = roll_speed * direct
 		if is_on_wall():
 			roll_particles.emitting = false
 

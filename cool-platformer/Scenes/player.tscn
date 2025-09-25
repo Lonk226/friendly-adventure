@@ -214,7 +214,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Roll",
-"speed": 12.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -283,8 +283,7 @@ script = ExtResource("1_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_vgqql")
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"Cling"
-frame_progress = 0.148689
+animation = &"Roll"
 
 [node name="Trail" type="Line2D" parent="."]
 top_level = true
@@ -446,5 +445,5 @@ vertical_alignment = 1
 
 [connection signal="timeout" from="Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer" to="." method="_on_buffer_timer_timeout"]
-[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_2_timeout"]
+[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
