@@ -57,7 +57,6 @@ var particle_pos: Vector2
 func _ready() -> void:
 	singleton.bubble_bounce.connect(bubble_bounce)
 	singleton.token_collected.connect(token_collect)
-	singleton.sc_start.connect(fade)
 
 func _physics_process(delta: float) -> void:
 	if not frozen:
@@ -114,7 +113,7 @@ func _physics_process(delta: float) -> void:
 					velocity.x = 230 * direct
 				if diving:
 					if not dir:
-						velocity.x = 0
+						velocity.x = dir * 1000
 					diving = false
 				if super_dashing:
 					super_dashing = false
@@ -388,6 +387,3 @@ func reset_states():
 
 func token_collect():
 	token_num += 1
-
-func fade():
-	pass

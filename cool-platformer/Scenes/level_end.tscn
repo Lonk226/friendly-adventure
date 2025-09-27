@@ -34,24 +34,28 @@ texture = ExtResource("2_r8lt8")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_s7we8")
 position = Vector2(-1.19209e-06, -1.43051e-06)
+rotation = 0.349066
 scale = Vector2(0.875, 0.875)
 texture = ExtResource("2_r8lt8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_6xfj2")
 position = Vector2(-1.78814e-06, 2.86102e-06)
+rotation = 0.698132
 scale = Vector2(0.8125, 0.8125)
 texture = ExtResource("2_r8lt8")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_fpn1k")
 position = Vector2(7.77841e-06, -4.76837e-06)
+rotation = 1.0472
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_r8lt8")
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_ign1a")
 position = Vector2(-9.53674e-07, -9.53674e-07)
+rotation = 1.39626
 scale = Vector2(0.6875, 0.6875)
 texture = ExtResource("2_r8lt8")
 
