@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://rif721tfwcm7"]
+[gd_scene load_steps=46 format=3 uid="uid://rif721tfwcm7"]
 
 [ext_resource type="Script" uid="uid://lyicqu5gf04w" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cwib3r5qdmgru" path="res://Assets/The Guy.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://ufmnktllbmrs" path="res://Assets/Basic Dust.png" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://duoimoheppbpj" path="res://Scripts/trail.gd" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cux4ghjx68qi3" path="res://Assets/Progress Bar BG.png" id="5_8erm5"]
 [ext_resource type="Texture2D" uid="uid://b1m8curdxmht4" path="res://Assets/UI.png" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://buc3ncprtfpws" path="res://Assets/Token.png" id="6_x3wgy"]
 [ext_resource type="FontFile" uid="uid://cwcju0qnh4dxd" path="res://Assets/Pixeled.ttf" id="7_3smsa"]
@@ -403,12 +404,9 @@ color_ramp = SubResource("Gradient_hqtel")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="ColorRect2" type="ColorRect" parent="UI"]
-offset_left = 268.0
-offset_top = 8.0
-offset_right = 500.0
-offset_bottom = 39.0
-color = Color(0.4, 0.4, 0.4, 1)
+[node name="ProgressBarBg" type="Sprite2D" parent="UI"]
+position = Vector2(384, 23)
+texture = ExtResource("5_8erm5")
 
 [node name="Ui" type="Sprite2D" parent="UI"]
 position = Vector2(57, 398)
@@ -418,10 +416,10 @@ texture = ExtResource("5_fkybt")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -114.0
-offset_top = 10.0
-offset_right = 114.0
-offset_bottom = 37.0
+offset_left = -113.0
+offset_top = 11.0
+offset_right = 113.0
+offset_bottom = 35.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_hqtel")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sweqy")
@@ -448,5 +446,5 @@ vertical_alignment = 1
 
 [connection signal="timeout" from="Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer" to="." method="_on_buffer_timer_timeout"]
-[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_2_timeout"]
+[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
