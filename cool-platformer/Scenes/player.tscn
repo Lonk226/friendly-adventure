@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://rif721tfwcm7"]
+[gd_scene load_steps=45 format=3 uid="uid://rif721tfwcm7"]
 
 [ext_resource type="Script" uid="uid://lyicqu5gf04w" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cwib3r5qdmgru" path="res://Assets/The Guy.png" id="3_hqtel"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://duoimoheppbpj" path="res://Scripts/trail.gd" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://b1m8curdxmht4" path="res://Assets/UI.png" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://buc3ncprtfpws" path="res://Assets/Token.png" id="6_x3wgy"]
+[ext_resource type="FontFile" uid="uid://cwcju0qnh4dxd" path="res://Assets/Pixeled.ttf" id="7_3smsa"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vgqql"]
 light_mode = 1
@@ -428,17 +429,19 @@ max_value = 2000.0
 show_percentage = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="UI"]
-position = Vector2(39, 398)
+position = Vector2(41, 398)
 texture = ExtResource("6_x3wgy")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="Label" type="Label" parent="UI"]
 offset_left = 47.0
-offset_top = 386.0
+offset_top = 382.0
 offset_right = 87.0
-offset_bottom = 409.0
+offset_bottom = 410.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_3smsa")
+theme_override_font_sizes/font_size = 10
 text = "000"
 horizontal_alignment = 1
 vertical_alignment = 1
