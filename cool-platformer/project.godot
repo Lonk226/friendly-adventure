@@ -13,7 +13,7 @@ config_version=5
 config/name="Cool Platformer"
 run/main_scene="uid://cmuaf0uugjnw0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://Assets/icon.svg"
+config/icon="uid://bja3hmckkcjkb"
 
 [autoload]
 
