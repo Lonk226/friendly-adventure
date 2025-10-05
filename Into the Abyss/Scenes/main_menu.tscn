@@ -64,12 +64,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 32
-text = "Cool Platformer"
-
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)

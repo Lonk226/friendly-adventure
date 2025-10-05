@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Cool Platformer"
+config/name="Into the Abyss"
 run/main_scene="uid://cmuaf0uugjnw0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://bja3hmckkcjkb"
