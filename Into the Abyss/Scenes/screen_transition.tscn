@@ -58,6 +58,7 @@ _data = {
 }
 
 [node name="Screen Transition" type="Node2D"]
+z_index = 3
 script = ExtResource("1_w0r0h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
