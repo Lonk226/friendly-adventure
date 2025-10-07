@@ -138,7 +138,10 @@ func _physics_process(delta: float) -> void:
 	particle_anim()
 	ghost_effect()
 	
-	$UI/Label.text = str(token_num)
+	if get_tree().current_scene.scene_file_path == "res://Scenes/the_lab.tscn":
+		$UI/Label.text = str(singleton.full_token_count)
+	else:
+		$UI/Label.text = str(token_num)
 
 func jump():
 	velocity.y = jump_speed
@@ -387,3 +390,4 @@ func reset_states():
 
 func token_collect():
 	token_num += 1
+	singleton.full_token_count += 1
