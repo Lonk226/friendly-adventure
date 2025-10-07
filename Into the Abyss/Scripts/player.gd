@@ -107,7 +107,6 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, friction)
 		if is_on_floor():
 			if not on_ground:
-				#animated_sprite.scale = Vector2(1.3, 0.7)
 				if long_jumping:
 					long_jumping = false
 					velocity.x = 230 * direct
@@ -285,8 +284,9 @@ func dive():
 		diving = true
 		charge_value += charge_up
 		animated_sprite.scale = Vector2(1.3, 0.7)
-		velocity.x = 500 * direct
 		velocity.y = -300
+	if diving:
+		velocity.x = 500 * direct
 
 func wall_sliding_and_jumping():
 	var dir := Input.get_axis("left", "right")
