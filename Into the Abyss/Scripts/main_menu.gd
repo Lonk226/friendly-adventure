@@ -12,7 +12,7 @@ func _on_new_game_pressed() -> void:
 	await get_tree().create_timer(1).timeout
 	ScreenTransition.color_rect.position.x = 0
 	await get_tree().create_timer(0.01).timeout
-	get_tree().change_scene_to_file('res://Scenes/Levels/level_1.tscn')
+	get_tree().change_scene_to_file('res://Scenes/the_lab.tscn')
 
 func _on_load_game_pressed() -> void:
 	print("load a save file")
