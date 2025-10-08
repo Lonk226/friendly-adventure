@@ -19,6 +19,7 @@ config/icon="uid://bja3hmckkcjkb"
 
 singleton="*res://Scripts/global.gd"
 ScreenTransition="*res://Scenes/screen_transition.tscn"
+CRT="*res://Scenes/CRT.tscn"
 
 [display]
 

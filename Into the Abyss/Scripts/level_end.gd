@@ -27,4 +27,4 @@ func _on_body_entered(body: Node2D) -> void:
 		var tween2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 		tween2.tween_property(player, "scale", Vector2.ZERO, 0.3)
 		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file(next_level_path)
+		get_tree().change_scene_to_file("res://Scenes/the_lab.tscn")
