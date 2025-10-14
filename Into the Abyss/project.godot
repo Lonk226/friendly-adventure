@@ -25,6 +25,7 @@ CRT="*res://Scenes/CRT.tscn"
 
 window/size/viewport_width=768
 window/size/viewport_height=432
+window/size/mode=1
 window/stretch/mode="viewport"
 
 [editor]
