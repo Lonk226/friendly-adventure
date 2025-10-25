@@ -155,7 +155,7 @@ func long_jump():
 	animated_sprite.scale = Vector2(0.5, 1.5)
 	rolling = false
 	long_jumping = true
-	charge_value += charge_up
+	boost_charge()
 
 func side_flip():
 	velocity.y = jump_speed * 1.4
@@ -166,7 +166,7 @@ func side_flip():
 	rolling = false
 	velocity.x = 300 * direct
 	sideflip_particles.emitting = true
-	charge_value += charge_up
+	boost_charge()
 	await get_tree().create_timer(0.5).timeout
 	if side_flipping:
 		velocity.y = 0
@@ -182,7 +182,10 @@ func bubble_bounce():
 	rolling = false
 	can_dive = true
 	maxed = true
-	charge_value = $"UI/Super Meter".max_value
+	var tween = create_tween()
+	tween.tween_property(self, "charge_value", $"UI/Super Meter".max_value, 0.1)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
 
 func play_anim(delta):
 	var dir: float = Input.get_axis("left", "right")
@@ -267,7 +270,7 @@ func roll():
 		roll_buffering = false
 		reset_states()
 		rolling = true
-		charge_value += charge_up
+		boost_charge()
 		roll_particles.emitting = true
 		await get_tree().create_timer(0.4).timeout
 		rolling = false
@@ -285,7 +288,7 @@ func dive():
 		reset_states()
 		velocity = Vector2.ZERO
 		diving = true
-		charge_value += charge_up
+		boost_charge()
 		animated_sprite.scale = Vector2(1.3, 0.7)
 		velocity.y = -300
 	if diving:
@@ -310,7 +313,7 @@ func wall_sliding_and_jumping():
 			jump()
 			$"Particles/Wall Jump Particles".emitting = false
 			$"Particles/Wall Jump Particles".emitting = true
-			charge_value += charge_up
+			boost_charge()
 			velocity.x = wall_jump_pushback * direct
 			return
 		if roll_buffering:
@@ -352,10 +355,13 @@ func handle_meter(delta):
 	if charge_value == $"UI/Super Meter".max_value and not maxed:
 		maxed = true
 	if Input.is_action_just_pressed("super_dash") and maxed:
-		charge_value = 0
 		dash_dir = super_dash_dir()
 		super_dash()
 		maxed = false
+		var tween = create_tween()
+		tween.tween_property(self, "charge_value", 0, 0.1)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_QUAD)
 	if super_dashing:
 		velocity.x = dash_dir.x * super_dash_speed
 		velocity.y = dash_dir.y * super_dash_speed
@@ -391,3 +397,9 @@ func reset_states():
 func token_collect():
 	token_num += 1
 	singleton.full_token_count += 1
+
+func boost_charge():
+	var tween = create_tween()
+	tween.tween_property(self, "charge_value", charge_value + charge_up, 0.1)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
