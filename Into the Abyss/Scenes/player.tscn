@@ -264,7 +264,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_sweqy"]
-colors = PackedColorArray(1, 1, 1, 0.376471, 1, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 0.376471, 1, 1, 1, 0.521569)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(12, 27)
@@ -408,7 +408,7 @@ color_ramp = SubResource("Gradient_hqtel")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBarBg" type="Sprite2D" parent="UI"]
-position = Vector2(384, 23)
+position = Vector2(384, 28.5)
 texture = ExtResource("5_8erm5")
 
 [node name="Ui" type="Sprite2D" parent="UI"]
@@ -420,9 +420,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -112.0
-offset_top = 11.0
+offset_top = 16.0
 offset_right = 112.0
-offset_bottom = 35.0
+offset_bottom = 41.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_hqtel")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sweqy")
@@ -465,5 +465,5 @@ texture_hover = ExtResource("11_ukyrk")
 
 [connection signal="timeout" from="Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer" to="." method="_on_buffer_timer_timeout"]
-[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_2_timeout"]
+[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
