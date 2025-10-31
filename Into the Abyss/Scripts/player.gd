@@ -47,6 +47,7 @@ var maxed: bool = false
 var super_dashing: bool = false
 var bouncing: bool = false
 var frozen: bool = false
+var can_change_dash_dir: bool = false
 
 var direct: int = 1
 var dash_dir: Vector2
@@ -356,15 +357,21 @@ func handle_meter(delta):
 		maxed = true
 	if Input.is_action_just_pressed("super_dash") and maxed:
 		dash_dir = super_dash_dir()
+		if wall_sliding:
+			dash_dir.x = direct
 		super_dash()
 		maxed = false
 		var tween = create_tween()
 		tween.tween_property(self, "charge_value", 0, 0.1)
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_QUAD)
+		await get_tree().create_timer(0.05).timeout
+		can_change_dash_dir = true
 	if super_dashing:
+		wall_sliding = false
 		velocity.x = dash_dir.x * super_dash_speed
 		velocity.y = dash_dir.y * super_dash_speed
+	if can_change_dash_dir:
 		if dash_dir.x and is_on_wall():
 			dash_dir.x = 0
 
@@ -374,6 +381,7 @@ func super_dash():
 	reset_states()
 	super_dashing = true
 	await get_tree().create_timer(0.25).timeout
+	can_change_dash_dir = false
 	can_dive = true
 	super_dashing = false
 	velocity = velocity/4

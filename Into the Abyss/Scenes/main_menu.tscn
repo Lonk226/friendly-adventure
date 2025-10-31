@@ -1,39 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmuaf0uugjnw0"]
+[gd_scene load_steps=5 format=3 uid="uid://rdi372e6pq6b"]
 
-[ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="1_28flt"]
-[ext_resource type="Script" uid="uid://dv4fvvdp6767b" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://52ufd7wis8qc" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="PackedScene" uid="uid://b7i6olry7w5ok" path="res://Scenes/title_screen.tscn" id="3_1ehe0"]
+[ext_resource type="PackedScene" uid="uid://nnoyue8pxkwi" path="res://Scenes/menu_button.tscn" id="3_ce3w2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28flt"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
-bg_color = Color(0.4, 0.4, 0.4, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
-bg_color = Color(0.2, 0.2, 0.2, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-anti_aliasing = false
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sg8f"]
+size = Vector2(6, 6)
 
 [node name="Main Menu" type="Control"]
-z_index = 16
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,169 +16,60 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_48xlc")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Title Screen" parent="." instance=ExtResource("3_1ehe0")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ce3w2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-z_index = 5
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -64.0
-offset_right = 96.0
-offset_bottom = 64.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 40
 
-[node name="Continue" type="Button" parent="VBoxContainer"]
+[node name="Continue" parent="VBoxContainer" instance=ExtResource("3_ce3w2")]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
-theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 text = "Continue"
 
-[node name="New Game" type="Button" parent="VBoxContainer"]
+[node name="New Game" parent="VBoxContainer" instance=ExtResource("3_ce3w2")]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
-theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 text = "New Game"
 
-[node name="Load Game" type="Button" parent="VBoxContainer"]
+[node name="Load Game" parent="VBoxContainer" instance=ExtResource("3_ce3w2")]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
-theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 text = "Load Game"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" parent="VBoxContainer" instance=ExtResource("3_ce3w2")]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
-theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 text = "Options"
 
-[node name="Extras" type="Button" parent="VBoxContainer"]
+[node name="Extras" parent="VBoxContainer" instance=ExtResource("3_ce3w2")]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
-theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 text = "Extras"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" parent="VBoxContainer" instance=ExtResource("3_ce3w2")]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
-theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 text = "Quit"
 
-[node name="Title Screen" parent="." instance=ExtResource("3_1ehe0")]
-layout_mode = 1
+[node name="Mouse Tracker" type="Area2D" parent="."]
 
-[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="VBoxContainer/Load Game" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Extras" to="." method="_on_extras_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse Tracker"]
+position = Vector2(385, -32)
+shape = SubResource("RectangleShape2D_8sg8f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
