@@ -411,3 +411,11 @@ func boost_charge():
 	tween.tween_property(self, "charge_value", charge_value + charge_up, 0.1)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
+
+func _on_texture_button_pressed() -> void:
+	singleton.sc_start.emit()
+	frozen = true
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	frozen = false
+	singleton.sc_end.emit()

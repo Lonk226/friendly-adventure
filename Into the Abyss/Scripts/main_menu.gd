@@ -2,6 +2,7 @@ extends Control
 
 var cooling_down: bool = false
 var cooldown: float = 0.2
+var fading: bool = false
 
 func _ready() -> void:
 	get_tree().get_first_node_in_group("MenuButton").highlighted = true
@@ -11,11 +12,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$"Mouse Tracker/CollisionShape2D".global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("start") and $"Title Screen" == null:
+		fading = true
 		if $VBoxContainer/Continue.highlighted:
 			print("continue game")
 		elif $"VBoxContainer/New Game".highlighted:
 			var tween = get_tree().create_tween()
-			tween.tween_property($VBoxContainer, "modulate", Color.TRANSPARENT, 1)
+			tween.tween_property($VBoxContainer, "modulate", Color(0.0, 0.0, 0.0, 0.0), 1)
 			await get_tree().create_timer(1).timeout
 			ScreenTransition.color_rect.position.x = 0
 			await get_tree().create_timer(0.01).timeout
@@ -28,7 +30,7 @@ func _process(delta: float) -> void:
 			print("find extra content")
 		elif $VBoxContainer/Quit.highlighted:
 			get_tree().quit()
-	if Input.is_action_pressed("up") and not cooling_down:
+	if Input.is_action_pressed("up") and not cooling_down and not fading:
 		cooling_down = true
 		if $VBoxContainer/Continue.highlighted:
 			pass
@@ -54,7 +56,7 @@ func _process(delta: float) -> void:
 			$VBoxContainer/Extras.highlighted = true
 		await get_tree().create_timer(cooldown).timeout
 		cooling_down = false
-	if Input.is_action_pressed("down") and not cooling_down:
+	if Input.is_action_pressed("down") and not cooling_down and not fading:
 		cooling_down = true
 		if $VBoxContainer/Continue.highlighted:
 			for button in get_tree().get_nodes_in_group("MenuButton"):
