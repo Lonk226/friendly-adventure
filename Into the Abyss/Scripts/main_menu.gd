@@ -11,13 +11,15 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	$"Mouse Tracker/CollisionShape2D".global_position = get_global_mouse_position()
-	if Input.is_action_just_pressed("start") and $"Title Screen" == null:
+	if Input.is_action_just_pressed("start") and $"Title Screen".off == true:
 		fading = true
 		if $VBoxContainer/Continue.highlighted:
 			print("continue game")
 		elif $"VBoxContainer/New Game".highlighted:
 			var tween = get_tree().create_tween()
 			tween.tween_property($VBoxContainer, "modulate", Color(0.0, 0.0, 0.0, 0.0), 1)
+			var tween2 = get_tree().create_tween()
+			tween2.tween_property($"Title Screen", "modulate", Color(0.0, 0.0, 0.0, 0.0), 1)
 			await get_tree().create_timer(1).timeout
 			ScreenTransition.color_rect.position.x = 0
 			await get_tree().create_timer(0.01).timeout

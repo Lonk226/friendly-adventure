@@ -1,66 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://nnoyue8pxkwi"]
+[gd_scene load_steps=8 format=3 uid="uid://nnoyue8pxkwi"]
 
 [ext_resource type="Script" uid="uid://cgo3w1yn1o0f2" path="res://Scripts/menu_button.gd" id="1_yqqcg"]
 [ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="2_w11kp"]
+[ext_resource type="Texture2D" uid="uid://ckrstwnhf7gyj" path="res://Assets/Menu Option.png" id="3_w11kp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqqcg"]
 size = Vector2(128, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uo3s"]
+atlas = ExtResource("3_w11kp")
+region = Rect2(0, 32, 180, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y72qc"]
+atlas = ExtResource("3_w11kp")
+region = Rect2(0, 0, 180, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rb1po"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uo3s")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y72qc")
+}],
+"loop": true,
+"name": &"On",
+"speed": 5.0
+}]
+
 [node name="Menu Button" type="Control" groups=["MenuButton"]]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -20.0
-offset_top = -12.0
-offset_right = 20.0
-offset_bottom = 28.0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_yqqcg")
 
 [node name="Label" type="Label" parent="."]
 z_index = 3
 layout_mode = 0
-offset_left = -28.0
-offset_right = 68.0
-offset_bottom = 23.0
+offset_left = -48.0
+offset_top = -12.0
+offset_right = 48.0
+offset_bottom = 12.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_w11kp")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-z_index = 1
-layout_mode = 0
-offset_left = -42.0
-offset_top = -2.0
-offset_right = 82.0
-offset_bottom = 26.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -44.0
-offset_top = -4.0
-offset_right = 84.0
-offset_bottom = 28.0
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(20, 12)
 shape = SubResource("RectangleShape2D_yqqcg")
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -63.0
-offset_top = 5.0
-offset_right = -49.0
-offset_bottom = 19.0
-
-[node name="ColorRect4" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 89.0
-offset_top = 5.0
-offset_right = 103.0
-offset_bottom = 19.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rb1po")
+animation = &"Off"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
