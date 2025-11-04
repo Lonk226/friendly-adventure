@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://rif721tfwcm7"]
+[gd_scene load_steps=46 format=3 uid="uid://rif721tfwcm7"]
 
 [ext_resource type="Script" uid="uid://lyicqu5gf04w" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cwib3r5qdmgru" path="res://Assets/The Guy.png" id="3_hqtel"]
@@ -8,9 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b1m8curdxmht4" path="res://Assets/UI.png" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://buc3ncprtfpws" path="res://Assets/Token.png" id="6_x3wgy"]
 [ext_resource type="FontFile" uid="uid://cwcju0qnh4dxd" path="res://Assets/Pixeled.ttf" id="7_3smsa"]
-[ext_resource type="Texture2D" uid="uid://v050dckuyers" path="res://Assets/Menu Button-1.png.png" id="9_gymyn"]
-[ext_resource type="Texture2D" uid="uid://c5v7t8gpdrjg5" path="res://Assets/Menu Button-3.png.png" id="10_pu2lt"]
-[ext_resource type="Texture2D" uid="uid://x3sjjyolvmw" path="res://Assets/Menu Button-2.png.png" id="11_ukyrk"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vgqql"]
 light_mode = 1
@@ -446,24 +443,7 @@ text = "000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="UI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-texture_normal = ExtResource("9_gymyn")
-texture_pressed = ExtResource("10_pu2lt")
-texture_hover = ExtResource("11_ukyrk")
-
 [connection signal="timeout" from="Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer" to="." method="_on_buffer_timer_timeout"]
-[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_2_timeout"]
-[connection signal="pressed" from="UI/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]

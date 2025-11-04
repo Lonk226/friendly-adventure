@@ -15,22 +15,30 @@ func _process(delta: float) -> void:
 		fading = true
 		if $VBoxContainer/Continue.highlighted:
 			print("continue game")
+			fading = false
+			$VBoxContainer/Continue.select()
 		elif $"VBoxContainer/New Game".highlighted:
-			var tween = get_tree().create_tween()
-			tween.tween_property($VBoxContainer, "modulate", Color(0.0, 0.0, 0.0, 0.0), 1)
-			var tween2 = get_tree().create_tween()
-			tween2.tween_property($"Title Screen", "modulate", Color(0.0, 0.0, 0.0, 0.0), 1)
-			await get_tree().create_timer(1).timeout
 			ScreenTransition.color_rect.position.x = 0
-			await get_tree().create_timer(0.01).timeout
+			singleton.sc_start.emit()
+			$"VBoxContainer/New Game".select()
+			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file('res://Scenes/the_lab.tscn')
 		elif $"VBoxContainer/Load Game".highlighted:
 			print("load a save file")
+			fading = false
+			$"VBoxContainer/Load Game".select()
 		elif $VBoxContainer/Options.highlighted:
 			print("go to options menu")
+			fading = false
+			$VBoxContainer/Options.select()
 		elif $VBoxContainer/Extras.highlighted:
 			print("find extra content")
+			fading = false
+			$VBoxContainer/Extras.select()
 		elif $VBoxContainer/Quit.highlighted:
+			$VBoxContainer/Quit.select()
+			singleton.sc_start.emit()
+			await get_tree().create_timer(0.2).timeout
 			get_tree().quit()
 	if Input.is_action_pressed("up") and not cooling_down and not fading:
 		cooling_down = true

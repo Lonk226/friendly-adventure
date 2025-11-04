@@ -8,10 +8,8 @@ var on_player: bool = false
 
 func _ready() -> void:
 	label.modulate = Color.TRANSPARENT
+	await get_tree().create_timer(0.1).timeout
 	singleton.sc_end.emit()
-	player.frozen = true
-	await get_tree().create_timer(0.2).timeout
-	player.frozen = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("talk") and on_player:
