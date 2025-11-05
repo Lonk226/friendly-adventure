@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://svifmnopfquk"]
+[gd_scene load_steps=36 format=4 uid="uid://svifmnopfquk"]
 
 [ext_resource type="Script" uid="uid://df55wyuhm3ex6" path="res://Scripts/the_lab.gd" id="1_bxk48"]
 [ext_resource type="PackedScene" uid="uid://rif721tfwcm7" path="res://Scenes/player.tscn" id="1_qf6ic"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://d2bmy3kaltk0o" path="res://Assets/The Researcher.png" id="4_vqeu1"]
 [ext_resource type="Texture2D" uid="uid://d4l427fpnmql8" path="res://Assets/Lab Decor.png" id="5_gui8c"]
 [ext_resource type="Texture2D" uid="uid://cnbxm32mheiag" path="res://Assets/Task Board.png" id="6_0m1q0"]
+[ext_resource type="Texture2D" uid="uid://bvmvyn8oftxjp" path="res://Assets/Robot.png" id="10_a22h4"]
+[ext_resource type="Texture2D" uid="uid://c3i4cs8hc2dir" path="res://Assets/Box.png" id="11_smmx5"]
+[ext_resource type="Texture2D" uid="uid://tcwqf87y086r" path="res://Assets/Window.png" id="12_m5th2"]
+[ext_resource type="Texture2D" uid="uid://dc7xna57w6653" path="res://Assets/Table.png" id="13_feqvp"]
 [ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="13_mqfhs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqeu1"]
@@ -106,6 +110,52 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqeu1"]
 size = Vector2(121, 86)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a22h4"]
+size = Vector2(52, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqfhs"]
+atlas = ExtResource("10_a22h4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feqvp"]
+atlas = ExtResource("10_a22h4")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjvve"]
+atlas = ExtResource("10_a22h4")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j2j4"]
+atlas = ExtResource("10_a22h4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ughdu"]
+atlas = ExtResource("10_a22h4")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u71gk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqfhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feqvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjvve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j2j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ughdu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="The Lab" type="Node2D"]
 script = ExtResource("1_bxk48")
 
@@ -169,5 +219,97 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Robot" type="Area2D" parent="."]
+z_index = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Robot"]
+position = Vector2(330, 331)
+shape = SubResource("RectangleShape2D_a22h4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Robot"]
+position = Vector2(330, 332)
+sprite_frames = SubResource("SpriteFrames_u71gk")
+autoplay = "default"
+frame_progress = 0.945074
+
+[node name="Decor Manual" type="Node2D" parent="."]
+
+[node name="Box2" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(128, 337)
+texture = ExtResource("11_smmx5")
+
+[node name="Box4" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(181, 337)
+texture = ExtResource("11_smmx5")
+
+[node name="Box5" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(155, 337)
+texture = ExtResource("11_smmx5")
+
+[node name="Box6" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(153, 275)
+texture = ExtResource("11_smmx5")
+
+[node name="Box7" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(145, 306)
+texture = ExtResource("11_smmx5")
+
+[node name="Box9" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(231, 337)
+texture = ExtResource("11_smmx5")
+
+[node name="Box11" type="Sprite2D" parent="Decor Manual"]
+z_index = -2
+position = Vector2(392, 337)
+texture = ExtResource("11_smmx5")
+
+[node name="Box12" type="Sprite2D" parent="Decor Manual"]
+z_index = -2
+position = Vector2(395, 306)
+texture = ExtResource("11_smmx5")
+
+[node name="Box13" type="Sprite2D" parent="Decor Manual"]
+z_index = -2
+position = Vector2(499, 337)
+texture = ExtResource("11_smmx5")
+
+[node name="Window" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(129, 96)
+texture = ExtResource("12_m5th2")
+
+[node name="Window2" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(257, 96)
+texture = ExtResource("12_m5th2")
+
+[node name="Window3" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(385, 96)
+texture = ExtResource("12_m5th2")
+
+[node name="Window4" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(513, 96)
+texture = ExtResource("12_m5th2")
+
+[node name="Window5" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(641, 96)
+texture = ExtResource("12_m5th2")
+
+[node name="Table" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(441, 338)
+texture = ExtResource("13_feqvp")
+
 [connection signal="body_entered" from="The Researcher" to="." method="_on_the_researcher_body_entered"]
 [connection signal="body_exited" from="The Researcher" to="." method="_on_the_researcher_body_exited"]
+[connection signal="body_entered" from="Robot" to="." method="_on_robot_body_entered"]
+[connection signal="body_exited" from="Robot" to="." method="_on_robot_body_exited"]

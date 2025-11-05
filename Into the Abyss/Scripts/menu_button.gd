@@ -17,9 +17,9 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if not $"../..".fading:
-		highlighted = true
 		hovered.emit(self)
 
 func select():
-	pass
+	$CPUParticles2D.emitting = true
+	$CPUParticles2D2.emitting = true
 	# play a selction animation on the button

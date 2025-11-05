@@ -408,6 +408,6 @@ func token_collect():
 
 func boost_charge():
 	var tween = create_tween()
-	tween.tween_property(self, "charge_value", charge_value + charge_up, 0.1)
+	tween.tween_property(self, "charge_value", charge_value + charge_up, 0.07)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)

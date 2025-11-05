@@ -112,7 +112,7 @@ sources/1 = SubResource("TileSetAtlasSource_uygrl")
 sources/4 = SubResource("TileSetAtlasSource_nop2h")
 sources/5 = SubResource("TileSetAtlasSource_ba6q6")
 
-[node name="Level Template" type="Node2D"]
+[node name="Level Template" type="Node2D" groups=["Incomplete Level", "Level"]]
 script = ExtResource("1_tf3fl")
 
 [node name="Camera" type="Camera2D" parent="." groups=["Camera"]]

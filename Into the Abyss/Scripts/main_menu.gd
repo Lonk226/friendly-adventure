@@ -14,6 +14,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("start") and $"Title Screen".off == true:
 		fading = true
 		if $VBoxContainer/Continue.highlighted:
+			ScreenTransition.color_rect.position.x = 0
+			singleton.sc_start.emit()
 			print("continue game")
 			fading = false
 			$VBoxContainer/Continue.select()
@@ -24,23 +26,30 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file('res://Scenes/the_lab.tscn')
 		elif $"VBoxContainer/Load Game".highlighted:
+			ScreenTransition.color_rect.position.x = 0
+			singleton.sc_start.emit()
 			print("load a save file")
 			fading = false
 			$"VBoxContainer/Load Game".select()
 		elif $VBoxContainer/Options.highlighted:
+			ScreenTransition.color_rect.position.x = 0
+			singleton.sc_start.emit()
 			print("go to options menu")
 			fading = false
 			$VBoxContainer/Options.select()
 		elif $VBoxContainer/Extras.highlighted:
+			ScreenTransition.color_rect.position.x = 0
+			singleton.sc_start.emit()
 			print("find extra content")
 			fading = false
 			$VBoxContainer/Extras.select()
 		elif $VBoxContainer/Quit.highlighted:
-			$VBoxContainer/Quit.select()
+			ScreenTransition.color_rect.position.x = 0
 			singleton.sc_start.emit()
-			await get_tree().create_timer(0.2).timeout
+			$VBoxContainer/Quit.select()
+			await get_tree().create_timer(0.6).timeout
 			get_tree().quit()
-	if Input.is_action_pressed("up") and not cooling_down and not fading:
+	if Input.is_action_pressed("up") and not cooling_down and not fading and $"Title Screen".off:
 		cooling_down = true
 		if $VBoxContainer/Continue.highlighted:
 			pass
@@ -66,7 +75,7 @@ func _process(delta: float) -> void:
 			$VBoxContainer/Extras.highlighted = true
 		await get_tree().create_timer(cooldown).timeout
 		cooling_down = false
-	if Input.is_action_pressed("down") and not cooling_down and not fading:
+	if Input.is_action_pressed("down") and not cooling_down and not fading and $"Title Screen".off:
 		cooling_down = true
 		if $VBoxContainer/Continue.highlighted:
 			for button in get_tree().get_nodes_in_group("MenuButton"):
@@ -94,6 +103,7 @@ func _process(delta: float) -> void:
 		cooling_down = false
 
 func clear(specific_button):
-	for button in get_tree().get_nodes_in_group("MenuButton"):
-		button.highlighted = false
-		specific_button.highlighted = true
+	if $"Title Screen".off == true:
+		for button in get_tree().get_nodes_in_group("MenuButton"):
+			button.highlighted = false
+			specific_button.highlighted = true

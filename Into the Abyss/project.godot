@@ -36,6 +36,9 @@ movie_writer/movie_file="C:/Users/admir/OneDrive/Documents/Godot_v4.4-stable_win
 Player=""
 Camera=""
 MenuButton=""
+"Incomplete Level"=""
+"Complete Level"=""
+Level=""
 
 [input]
 
