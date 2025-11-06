@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://svifmnopfquk"]
+[gd_scene load_steps=37 format=4 uid="uid://svifmnopfquk"]
 
 [ext_resource type="Script" uid="uid://df55wyuhm3ex6" path="res://Scripts/the_lab.gd" id="1_bxk48"]
 [ext_resource type="PackedScene" uid="uid://rif721tfwcm7" path="res://Scenes/player.tscn" id="1_qf6ic"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://tcwqf87y086r" path="res://Assets/Window.png" id="12_m5th2"]
 [ext_resource type="Texture2D" uid="uid://dc7xna57w6653" path="res://Assets/Table.png" id="13_feqvp"]
 [ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="13_mqfhs"]
+[ext_resource type="Texture2D" uid="uid://cnccatshwab6e" path="res://Assets/Cabinet.png" id="14_feqvp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqeu1"]
 texture = ExtResource("2_g5fj7")
@@ -234,11 +235,6 @@ frame_progress = 0.945074
 
 [node name="Decor Manual" type="Node2D" parent="."]
 
-[node name="Box2" type="Sprite2D" parent="Decor Manual"]
-z_index = -1
-position = Vector2(128, 337)
-texture = ExtResource("11_smmx5")
-
 [node name="Box4" type="Sprite2D" parent="Decor Manual"]
 z_index = -1
 position = Vector2(181, 337)
@@ -246,17 +242,12 @@ texture = ExtResource("11_smmx5")
 
 [node name="Box5" type="Sprite2D" parent="Decor Manual"]
 z_index = -1
-position = Vector2(155, 337)
-texture = ExtResource("11_smmx5")
-
-[node name="Box6" type="Sprite2D" parent="Decor Manual"]
-z_index = -1
-position = Vector2(153, 275)
+position = Vector2(144, 337)
 texture = ExtResource("11_smmx5")
 
 [node name="Box7" type="Sprite2D" parent="Decor Manual"]
 z_index = -1
-position = Vector2(145, 306)
+position = Vector2(161, 306)
 texture = ExtResource("11_smmx5")
 
 [node name="Box9" type="Sprite2D" parent="Decor Manual"]
@@ -308,6 +299,16 @@ texture = ExtResource("12_m5th2")
 z_index = -1
 position = Vector2(441, 338)
 texture = ExtResource("13_feqvp")
+
+[node name="Cabinet" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(536, 321)
+texture = ExtResource("14_feqvp")
+
+[node name="Cabinet2" type="Sprite2D" parent="Decor Manual"]
+z_index = -1
+position = Vector2(276, 321)
+texture = ExtResource("14_feqvp")
 
 [connection signal="body_entered" from="The Researcher" to="." method="_on_the_researcher_body_entered"]
 [connection signal="body_exited" from="The Researcher" to="." method="_on_the_researcher_body_exited"]
