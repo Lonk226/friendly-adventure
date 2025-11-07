@@ -272,27 +272,27 @@ texture = ExtResource("11_smmx5")
 
 [node name="Window" type="Sprite2D" parent="Decor Manual"]
 z_index = -1
-position = Vector2(129, 96)
+position = Vector2(129, 139)
 texture = ExtResource("12_m5th2")
 
 [node name="Window2" type="Sprite2D" parent="Decor Manual"]
 z_index = -1
-position = Vector2(257, 96)
+position = Vector2(257, 139)
 texture = ExtResource("12_m5th2")
 
 [node name="Window3" type="Sprite2D" parent="Decor Manual"]
 z_index = -1
-position = Vector2(385, 96)
+position = Vector2(385, 139)
 texture = ExtResource("12_m5th2")
 
 [node name="Window4" type="Sprite2D" parent="Decor Manual"]
 z_index = -1
-position = Vector2(513, 96)
+position = Vector2(513, 139)
 texture = ExtResource("12_m5th2")
 
 [node name="Window5" type="Sprite2D" parent="Decor Manual"]
 z_index = -1
-position = Vector2(641, 96)
+position = Vector2(641, 139)
 texture = ExtResource("12_m5th2")
 
 [node name="Table" type="Sprite2D" parent="Decor Manual"]

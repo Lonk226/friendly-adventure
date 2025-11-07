@@ -29,6 +29,7 @@ var dive_gravity: float = 1400
 var roll_gravity: float = 600
 var charge_value: float = 0
 var charge_up: float = 400
+var goal_value: float = 0
 var super_dash_speed: float = 1000
 
 var facing_left: bool = false
@@ -361,6 +362,7 @@ func handle_meter(delta):
 			dash_dir.x = direct
 		super_dash()
 		maxed = false
+		goal_value = 0
 		var tween = create_tween()
 		tween.tween_property(self, "charge_value", 0, 0.1)
 		tween.set_ease(Tween.EASE_OUT)
@@ -407,6 +409,8 @@ func token_collect():
 	singleton.full_token_count += 1
 
 func boost_charge():
+	charge_value = goal_value
+	goal_value += charge_up
 	var tween = create_tween()
 	tween.tween_property(self, "charge_value", charge_value + charge_up, 0.07)
 	tween.set_ease(Tween.EASE_OUT)
