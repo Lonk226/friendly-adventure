@@ -184,6 +184,7 @@ func bubble_bounce():
 	rolling = false
 	can_dive = true
 	maxed = true
+	goal_value = $"UI/Super Meter".max_value
 	var tween = create_tween()
 	tween.tween_property(self, "charge_value", $"UI/Super Meter".max_value, 0.1)
 	tween.set_ease(Tween.EASE_OUT)
@@ -361,7 +362,6 @@ func handle_meter(delta):
 		if wall_sliding:
 			dash_dir.x = direct
 		super_dash()
-		maxed = false
 		goal_value = 0
 		var tween = create_tween()
 		tween.tween_property(self, "charge_value", 0, 0.1)
