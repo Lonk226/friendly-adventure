@@ -12,7 +12,7 @@ var ghost_node = preload("res://Scenes/ghost.tscn")
 var ground_speed: float = 230
 var air_speed: float = 200
 var side_flipping_speed: float = 300
-var roll_speed: float = 450
+var roll_speed: float = 600
 var jump_height: float = 70 # height of jump
 var jump_time_to_peak: float = 0.42 # length of jump
 var jump_time_to_descent: float = 0.28 # length of fall
@@ -150,12 +150,14 @@ func jump():
 	can_jump = false
 	animated_sprite.scale = Vector2(0.5, 1.5)
 	rolling = false
+	roll_particles.emitting = false
 
 func long_jump():
 	velocity.y = jump_speed * 0.7
 	can_jump = false
 	animated_sprite.scale = Vector2(0.5, 1.5)
 	rolling = false
+	roll_particles.emitting = false
 	long_jumping = true
 	boost_charge()
 
@@ -166,6 +168,7 @@ func side_flip():
 	animated_sprite.scale = Vector2(0.5, 1.5)
 	roll_particles.emitting = false
 	rolling = false
+	roll_particles.emitting = false
 	velocity.x = 300 * direct
 	sideflip_particles.emitting = true
 	boost_charge()
@@ -182,6 +185,7 @@ func bubble_bounce():
 	can_jump = false
 	animated_sprite.scale = Vector2(0.5, 1.5)
 	rolling = false
+	roll_particles.emitting = false
 	can_dive = true
 	maxed = true
 	goal_value = $"UI/Super Meter".max_value
@@ -275,10 +279,11 @@ func roll():
 		rolling = true
 		boost_charge()
 		roll_particles.emitting = true
-		await get_tree().create_timer(0.4).timeout
-		rolling = false
-		roll_particles.emitting = false
-		velocity.x = 230 * direct
+		await get_tree().create_timer(0.3).timeout
+		if rolling:
+			rolling = false
+			roll_particles.emitting = false
+			velocity.x = 300 * direct
 	if rolling == true:
 		velocity.x = roll_speed * direct
 		if is_on_wall():
@@ -403,6 +408,7 @@ func reset_states():
 	super_dashing = false
 	bouncing = false
 	sideflip_particles.emitting = false
+	roll_particles.emitting = false
 
 func token_collect():
 	token_num += 1
