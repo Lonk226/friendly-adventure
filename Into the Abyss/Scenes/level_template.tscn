@@ -359,7 +359,7 @@ z_index = -5
 tile_set = SubResource("TileSet_hbq6r")
 
 [node name="Terrain Decor" type="TileMapLayer" parent="."]
-z_index = 3
+z_index = -1
 tile_set = SubResource("TileSet_7kbhc")
 
 [node name="Player" parent="." instance=ExtResource("7_ds0tp")]

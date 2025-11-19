@@ -14,10 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("talk") and researcher_on_player:
-		singleton.sc_start.emit()
-		player.frozen = true
-		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
+		bring_up_menu()
 
 func _on_the_researcher_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -42,3 +39,12 @@ func _on_robot_body_exited(body: Node2D) -> void:
 		robot_on_player = false
 		var tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 		tween.tween_property(label, "modulate", Color.TRANSPARENT, 0.2)
+
+func bring_up_menu():
+	start_level()
+
+func start_level():
+	singleton.sc_start.emit()
+	player.frozen = true
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://Scenes/Levels/level_2.tscn")

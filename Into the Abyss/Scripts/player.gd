@@ -286,7 +286,7 @@ func roll():
 			roll_particles.emitting = false
 			velocity.x = 100 * direct
 			can_roll = false
-			await get_tree().create_timer(0.05).timeout
+			await get_tree().create_timer(0.0).timeout
 			can_roll = true
 	if rolling == true:
 		velocity.x = roll_speed * direct
@@ -317,7 +317,7 @@ func wall_sliding_and_jumping():
 		long_jumping = false
 		velocity.y = 50
 		velocity.x = -200 * direct
-		if is_on_floor() or not is_on_wall():
+		if (is_on_floor() or not is_on_wall()):
 			wall_sliding = false
 		if buffering:
 			wall_sliding = false
@@ -327,6 +327,7 @@ func wall_sliding_and_jumping():
 			$"Particles/Wall Jump Particles".emitting = true
 			boost_charge()
 			velocity.x = wall_jump_pushback * direct
+			can_dive = true
 			return
 		if roll_buffering:
 			roll_buffering = false
