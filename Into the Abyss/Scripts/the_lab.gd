@@ -47,4 +47,4 @@ func start_level():
 	singleton.sc_start.emit()
 	player.frozen = true
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/Levels/level_2.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
