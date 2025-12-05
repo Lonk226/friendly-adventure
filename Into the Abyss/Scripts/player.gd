@@ -203,7 +203,7 @@ func play_anim(delta):
 			animated_sprite.play("Super")
 		elif rolling:
 			animated_sprite.play("Roll")
-		elif dir:
+		elif dir and not frozen:
 			animated_sprite.play("Walk")
 		else:
 			animated_sprite.play("Idle")
@@ -222,10 +222,10 @@ func play_anim(delta):
 			animated_sprite.play("Jump")
 		else:
 			animated_sprite.play("Fall")
-	if dir == 1 and not rolling and not long_jumping and not diving and not wall_sliding:
+	if dir == 1 and not rolling and not long_jumping and not diving and not wall_sliding and not frozen:
 		facing_left = false
 		direct = 1
-	elif dir == -1 and not rolling and not long_jumping and not diving and not wall_sliding:
+	elif dir == -1 and not rolling and not long_jumping and not diving and not wall_sliding and not frozen:
 		facing_left = true
 		direct = -1
 	animated_sprite.scale.x = move_toward(animated_sprite.scale.x, 1, 2 * delta)
@@ -369,7 +369,7 @@ func handle_meter(delta):
 		maxed = true
 	if Input.is_action_just_pressed("super_dash") and maxed:
 		dash_dir = super_dash_dir()
-		if wall_sliding:
+		if wall_sliding and not Input.is_action_pressed("down") and not Input.is_action_pressed("up"):
 			dash_dir.x = direct
 		super_dash()
 		goal_value = 0

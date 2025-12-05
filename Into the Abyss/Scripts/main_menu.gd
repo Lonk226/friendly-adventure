@@ -1,7 +1,7 @@
 extends Control
 
 var cooling_down: bool = false
-var cooldown: float = 0.2
+var cooldown: float = 0.15
 var fading: bool = false
 
 func _ready() -> void:
@@ -10,6 +10,8 @@ func _ready() -> void:
 		button.hovered.connect(clear)
 
 func _process(delta: float) -> void:
+	if not $"Title Screen".fading:
+		$"Title Screen".anim.play("Loop")
 	$"Mouse Tracker/CollisionShape2D".global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("start") and $"Title Screen".off == true:
 		fading = true
@@ -52,7 +54,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("up") and not cooling_down and not fading and $"Title Screen".off:
 		cooling_down = true
 		if $VBoxContainer/Continue.highlighted:
-			pass
+			for button in get_tree().get_nodes_in_group("MenuButton"):
+				button.highlighted = false
+			$VBoxContainer/Quit.highlighted = true
 		elif $"VBoxContainer/New Game".highlighted:
 			for button in get_tree().get_nodes_in_group("MenuButton"):
 				button.highlighted = false
@@ -98,7 +102,9 @@ func _process(delta: float) -> void:
 				button.highlighted = false
 			$VBoxContainer/Quit.highlighted = true
 		elif $VBoxContainer/Quit.highlighted:
-			pass
+			for button in get_tree().get_nodes_in_group("MenuButton"):
+				button.highlighted = false
+			$VBoxContainer/Continue.highlighted = true
 		await get_tree().create_timer(cooldown).timeout
 		cooling_down = false
 

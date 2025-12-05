@@ -2,6 +2,7 @@ extends Control
 
 var fading: bool = false
 var off: bool = false
+@onready var anim: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	modulate = Color.WHITE
