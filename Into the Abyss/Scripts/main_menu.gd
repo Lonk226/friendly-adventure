@@ -8,6 +8,7 @@ func _ready() -> void:
 	get_tree().get_first_node_in_group("MenuButton").highlighted = true
 	for button in get_tree().get_nodes_in_group("MenuButton"):
 		button.hovered.connect(clear)
+	$"Title Screen".off_sig.connect(detect_collision)
 
 func _process(delta: float) -> void:
 	if not $"Title Screen".fading:
@@ -109,7 +110,11 @@ func _process(delta: float) -> void:
 		cooling_down = false
 
 func clear(specific_button):
-	if $"Title Screen".off == true:
+	if $"Title Screen".fading or $"Title Screen".off:
 		for button in get_tree().get_nodes_in_group("MenuButton"):
 			button.highlighted = false
 			specific_button.highlighted = true
+
+func detect_collision():
+	for button in get_tree().get_nodes_in_group("MenuButton"):
+		button.reset_collision()

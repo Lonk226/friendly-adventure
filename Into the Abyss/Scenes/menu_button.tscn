@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nnoyue8pxkwi"]
+[gd_scene load_steps=6 format=3 uid="uid://nnoyue8pxkwi"]
 
 [ext_resource type="Script" uid="uid://cgo3w1yn1o0f2" path="res://Scripts/menu_button.gd" id="1_yqqcg"]
 [ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="2_w11kp"]
@@ -7,11 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqqcg"]
 size = Vector2(1166, 32)
-
-[sub_resource type="Curve" id="Curve_w11kp"]
-_limits = [0.0, 5.0, 0.0, 1.0]
-_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.490494, 0), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [node name="Menu Button" type="Control" groups=["MenuButton"]]
 layout_mode = 3
@@ -38,36 +33,8 @@ vertical_alignment = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_yqqcg")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(-75, -1)
-emitting = false
-amount = 20
-lifetime = 0.5
-one_shot = true
-explosiveness = 0.8
-direction = Vector2(-1, 0)
-spread = 10.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 203.82
-initial_velocity_max = 203.82
-scale_amount_curve = SubResource("Curve_w11kp")
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-position = Vector2(76, -1)
-emitting = false
-amount = 20
-lifetime = 0.5
-one_shot = true
-explosiveness = 0.8
-spread = 10.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 203.82
-initial_velocity_max = 203.82
-scale_amount_curve = SubResource("Curve_w11kp")
-
 [node name="Main" type="Sprite2D" parent="."]
 texture = ExtResource("3_w11kp")
-region_enabled = true
 region_rect = Rect2(0, 32, 188, 32)
 
 [node name="Side" type="Sprite2D" parent="."]

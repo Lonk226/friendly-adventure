@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://svifmnopfquk"]
+[gd_scene load_steps=42 format=4 uid="uid://svifmnopfquk"]
 
 [ext_resource type="Script" uid="uid://df55wyuhm3ex6" path="res://Scripts/the_lab.gd" id="1_bxk48"]
 [ext_resource type="PackedScene" uid="uid://rif721tfwcm7" path="res://Scenes/player.tscn" id="1_qf6ic"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dc7xna57w6653" path="res://Assets/Table.png" id="13_feqvp"]
 [ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="13_mqfhs"]
 [ext_resource type="Texture2D" uid="uid://cnccatshwab6e" path="res://Assets/Cabinet.png" id="14_feqvp"]
+[ext_resource type="PackedScene" uid="uid://bbhv65se3huog" path="res://Scenes/level_select.tscn" id="15_3j2j4"]
 [ext_resource type="Texture2D" uid="uid://beu3a71hdc4jn" path="res://Assets/X.png" id="15_gjvve"]
+[ext_resource type="Script" uid="uid://ctqkwpichvwdk" path="res://Scripts/level_menu.gd" id="15_ughdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqeu1"]
 texture = ExtResource("2_g5fj7")
@@ -157,8 +159,6 @@ animations = [{
 "name": &"default",
 "speed": 12.0
 }]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjvve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjvve"]
 size = Vector2(32, 32)
@@ -321,57 +321,61 @@ texture = ExtResource("14_feqvp")
 
 [node name="Level Menu" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
+script = ExtResource("15_ughdu")
 
-[node name="ColorRect" type="ColorRect" parent="Level Menu"]
+[node name="Node2D" type="Node2D" parent="Level Menu"]
+
+[node name="ColorRect" type="ColorRect" parent="Level Menu/Node2D"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.23, 0.23, 0.23, 0.694118)
+color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Level Menu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -222.0
-offset_top = -126.0
-offset_right = 222.0
-offset_bottom = 127.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 4
-alignment = 1
-
-[node name="Label" type="Label" parent="Level Menu/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Level Menu/Node2D"]
+offset_left = 212.0
+offset_top = 133.0
+offset_right = 556.0
+offset_bottom = 156.0
 theme_override_fonts/font = ExtResource("13_mqfhs")
 text = "Level Select"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Level Menu/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("13_mqfhs")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_gjvve")
-text = "Level"
+[node name="VBoxContainer" type="VBoxContainer" parent="Level Menu/Node2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_top = 179.0
+offset_right = 384.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 36
 
-[node name="Button2" type="Button" parent="Level Menu/VBoxContainer"]
+[node name="Over and Up" parent="Level Menu/Node2D/VBoxContainer" instance=ExtResource("15_3j2j4")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("13_mqfhs")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_gjvve")
-text = "Level"
+text = "Over and Up"
 
-[node name="X" type="Area2D" parent="Level Menu"]
+[node name="You can Bounce" parent="Level Menu/Node2D/VBoxContainer" instance=ExtResource("15_3j2j4")]
+layout_mode = 2
+text = "You can Bounce"
+
+[node name="X" type="Area2D" parent="Level Menu/Node2D"]
 position = Vector2(738, 30)
 
-[node name="Sprite2D" type="Sprite2D" parent="Level Menu/X"]
+[node name="Sprite2D" type="Sprite2D" parent="Level Menu/Node2D/X"]
 texture = ExtResource("15_gjvve")
 vframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level Menu/X"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level Menu/Node2D/X"]
 shape = SubResource("RectangleShape2D_gjvve")
 
 [node name="Mouse Collider" type="Area2D" parent="."]
@@ -383,5 +387,5 @@ shape = SubResource("RectangleShape2D_3j2j4")
 [connection signal="body_exited" from="The Researcher" to="." method="_on_the_researcher_body_exited"]
 [connection signal="body_entered" from="Robot" to="." method="_on_robot_body_entered"]
 [connection signal="body_exited" from="Robot" to="." method="_on_robot_body_exited"]
-[connection signal="area_entered" from="Level Menu/X" to="." method="_on_x_area_entered"]
-[connection signal="area_exited" from="Level Menu/X" to="." method="_on_x_area_exited"]
+[connection signal="area_entered" from="Level Menu/Node2D/X" to="." method="_on_x_area_entered"]
+[connection signal="area_exited" from="Level Menu/Node2D/X" to="." method="_on_x_area_exited"]

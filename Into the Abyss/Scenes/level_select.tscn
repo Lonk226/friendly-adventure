@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbhv65se3huog"]
+
+[ext_resource type="Script" uid="uid://dlk5wry7o6fbj" path="res://Scripts/level_select.gd" id="1_lx4vd"]
+[ext_resource type="Texture2D" uid="uid://ckrstwnhf7gyj" path="res://Assets/Menu Option.png" id="1_nkys2"]
+[ext_resource type="Texture2D" uid="uid://bj303op5yu1rr" path="res://Assets/Menu Option Side.png" id="2_lx4vd"]
+[ext_resource type="FontFile" uid="uid://cwcju0qnh4dxd" path="res://Assets/Pixeled.ttf" id="4_2sqnl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx4vd"]
+size = Vector2(1194, 30)
+
+[node name="Level Select" type="Control" groups=["Level Selector"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lx4vd")
+
+[node name="Main" type="Sprite2D" parent="."]
+texture = ExtResource("1_nkys2")
+
+[node name="Side" type="Sprite2D" parent="."]
+texture = ExtResource("2_lx4vd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lx4vd")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -52.0
+offset_top = -24.0
+offset_right = 52.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("4_2sqnl")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

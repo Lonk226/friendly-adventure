@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
 		tween2.set_trans(Tween.TRANS_QUAD)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if not $"../..".fading:
-		hovered.emit(self)
+	hovered.emit(self)
+	print("hover")
 
 func select():
 	var tween = get_tree().create_tween()
