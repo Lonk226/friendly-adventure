@@ -298,7 +298,6 @@ func dive():
 		roll_buffering = false
 		can_dive = false
 		reset_states()
-		velocity = Vector2.ZERO
 		diving = true
 		boost_charge()
 		animated_sprite.scale = Vector2(1.3, 0.7)
@@ -400,7 +399,7 @@ func super_dash():
 
 func super_dash_dir():
 	var dir: Vector2 = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
-	if dir == Vector2(0,0):
+	if dir.y == 0:
 		dir.x = direct
 	return dir.normalized()
 

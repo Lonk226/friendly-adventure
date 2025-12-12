@@ -22,7 +22,6 @@ func _on_body_entered(body: Node2D) -> void:
 		var next_level_path = "res://Scenes/Levels/level_" + str(next_level_num) + ".tscn"
 		singleton.sc_start.emit()
 		player.frozen = true
-		print(next_level_path)
 		var tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 		tween.tween_property(player, "position", global_position, 0.3)
 		var tween2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)

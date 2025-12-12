@@ -9,7 +9,7 @@ var robot_on_player: bool = false
 var x_highlighted: bool = false
 var cooling_down: bool = false
 
-var cooldown: float = 0.25
+var cooldown: float = 0.15
 
 func _ready() -> void:
 	label.modulate = Color.TRANSPARENT
@@ -20,7 +20,7 @@ func _ready() -> void:
 		button.hovered.connect(clear)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("talk") and researcher_on_player:
+	if Input.is_action_just_pressed("talk") and researcher_on_player and not $"Level Menu".on:
 		bring_up_menu()
 	if Input.is_action_just_pressed("start") and $"Level Menu".on and not x_highlighted:
 		if $"Level Menu/Node2D/VBoxContainer/Over and Up".highlighted:
@@ -44,6 +44,8 @@ func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("start") and x_highlighted) or Input.is_action_just_pressed("ineedtoleave"):
 		$"Level Menu".hide_menu()
 		player.frozen = false
+		player.reset_states()
+		player.velocity = Vector2.ZERO
 	$"Mouse Collider".global_position = get_global_mouse_position()
 	if x_highlighted:
 		$"Level Menu/Node2D/X/Sprite2D".frame = 0

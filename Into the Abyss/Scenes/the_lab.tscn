@@ -321,7 +321,6 @@ texture = ExtResource("14_feqvp")
 
 [node name="Level Menu" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 script = ExtResource("15_ughdu")
 
 [node name="Node2D" type="Node2D" parent="Level Menu"]
@@ -335,16 +334,6 @@ offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="Level Menu/Node2D"]
-offset_left = 212.0
-offset_top = 133.0
-offset_right = 556.0
-offset_bottom = 156.0
-theme_override_fonts/font = ExtResource("13_mqfhs")
-text = "Level Select"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Level Menu/Node2D"]
 anchors_preset = 7
@@ -363,10 +352,14 @@ theme_override_constants/separation = 36
 [node name="Over and Up" parent="Level Menu/Node2D/VBoxContainer" instance=ExtResource("15_3j2j4")]
 layout_mode = 2
 text = "Over and Up"
+difficulty = 1
+reward = 100
 
 [node name="You can Bounce" parent="Level Menu/Node2D/VBoxContainer" instance=ExtResource("15_3j2j4")]
 layout_mode = 2
 text = "You can Bounce"
+difficulty = 2
+reward = 120
 
 [node name="X" type="Area2D" parent="Level Menu/Node2D"]
 position = Vector2(738, 30)
@@ -377,6 +370,30 @@ vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level Menu/Node2D/X"]
 shape = SubResource("RectangleShape2D_gjvve")
+
+[node name="Label" type="Label" parent="Level Menu/Node2D"]
+offset_left = 226.0
+offset_top = 62.0
+offset_right = 570.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("13_mqfhs")
+text = "Where would you like to go?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="Sprite2D" parent="Level Menu/Node2D"]
+position = Vector2(262, 68)
+scale = Vector2(2, 2)
+texture = ExtResource("4_vqeu1")
+region_enabled = true
+region_rect = Rect2(24, 0, 32, 32)
+
+[node name="ColorRect2" type="ColorRect" parent="Level Menu/Node2D"]
+offset_left = 307.0
+offset_top = 55.0
+offset_right = 495.0
+offset_bottom = 95.0
+color = Color(0, 0, 0, 1)
 
 [node name="Mouse Collider" type="Area2D" parent="."]
 

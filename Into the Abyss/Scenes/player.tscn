@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cux4ghjx68qi3" path="res://Assets/Progress Bar BG.png" id="5_8erm5"]
 [ext_resource type="Texture2D" uid="uid://b1m8curdxmht4" path="res://Assets/UI.png" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://buc3ncprtfpws" path="res://Assets/Token.png" id="6_x3wgy"]
-[ext_resource type="FontFile" uid="uid://cwcju0qnh4dxd" path="res://Assets/Pixeled.ttf" id="7_3smsa"]
+[ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="8_8erm5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vgqql"]
 light_mode = 1
@@ -433,12 +433,11 @@ region_rect = Rect2(0, 0, 16, 16)
 
 [node name="Label" type="Label" parent="UI"]
 offset_left = 47.0
-offset_top = 382.0
+offset_top = 384.0
 offset_right = 87.0
-offset_bottom = 410.0
+offset_bottom = 412.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_3smsa")
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("8_8erm5")
 text = "000"
 horizontal_alignment = 1
 vertical_alignment = 1

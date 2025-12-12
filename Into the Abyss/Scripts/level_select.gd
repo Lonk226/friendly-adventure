@@ -1,6 +1,8 @@
 extends Control
 
 @export var text: String
+@export var difficulty: int
+@export var reward: int
 var highlighted: bool = false
 signal hovered(nodename)
 @onready var main: Sprite2D = $Main
@@ -8,6 +10,8 @@ signal hovered(nodename)
 
 func _process(delta: float) -> void:
 	$Label.text = text
+	$Difficulty.frame = difficulty - 1
+	$Reward.text = "Reward: " + str(reward) + " coins"
 	if highlighted:
 		var tween = get_tree().create_tween()
 		tween.tween_property(main, "scale", Vector2(1,1), 0.1)
@@ -29,7 +33,6 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	hovered.emit(self)
-	print("hover")
 
 func select():
 	var tween = get_tree().create_tween()

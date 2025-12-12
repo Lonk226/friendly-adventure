@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg40rbfffjlng"]
+[gd_scene load_steps=13 format=3 uid="uid://cg40rbfffjlng"]
 
 [ext_resource type="Script" uid="uid://dbumu6heu62p" path="res://Scripts/token.gd" id="1_w5to0"]
 [ext_resource type="Texture2D" uid="uid://buc3ncprtfpws" path="res://Assets/Token.png" id="2_ckhc0"]
@@ -56,6 +56,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hn4i"]
 radius = 9.0
 
+[sub_resource type="Curve" id="Curve_w5to0"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.692015, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_w5to0"]
+colors = PackedColorArray(1, 1, 1, 0.184314, 1, 1, 1, 0)
+
 [node name="Token" type="Node2D"]
 script = ExtResource("1_w5to0")
 
@@ -68,5 +76,18 @@ frame_progress = 0.740079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_6hn4i")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+scale_amount_curve = SubResource("Curve_w5to0")
+color_ramp = SubResource("Gradient_w5to0")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
