@@ -29,7 +29,6 @@ func _on_camera_move_up_body_entered(body: Node2D) -> void:
 		cam_transition(player, "global_position", Vector2(player.global_position.x, player.global_position.y - player_offset), 0.5)
 		await get_tree().create_timer(0.6).timeout
 		player.frozen = false
-		player.can_dive = true
 		if not player.wall_sliding:
 			player.reset_states()
 		singleton.reset_position = player.global_position
@@ -41,7 +40,6 @@ func _on_camera_move_down_body_entered(body: Node2D) -> void:
 		cam_transition(player, "global_position", Vector2(player.global_position.x, player.global_position.y + player_offset), 0.5)
 		await get_tree().create_timer(0.6).timeout
 		player.frozen = false
-		player.can_dive = true
 		if not player.wall_sliding:
 			player.reset_states()
 		singleton.reset_position = player.global_position
@@ -53,7 +51,6 @@ func _on_camera_move_right_body_entered(body: Node2D) -> void:
 		cam_transition(player, "global_position", Vector2(player.global_position.x + player_offset, player.global_position.y), 0.5)
 		await get_tree().create_timer(0.6).timeout
 		player.frozen = false
-		player.can_dive = true
 		if not player.wall_sliding:
 			player.reset_states()
 		singleton.reset_position = player.global_position
@@ -65,7 +62,6 @@ func _on_camera_move_left_body_entered(body: Node2D) -> void:
 		cam_transition(player, "global_position", Vector2(player.global_position.x - player_offset, player.global_position.y), 0.5)
 		await get_tree().create_timer(0.6).timeout
 		player.frozen = false
-		player.can_dive = true
 		if not player.wall_sliding:
 			player.reset_states()
 		singleton.reset_position = player.global_position

@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if on_player and not destroyed:
-		singleton.bubble_bounce.emit()
+		singleton.bubble_bounce.emit(global_position)
 		destroyed = true
 		$AnimatedSprite2D.play("Pop")
 		await get_tree().create_timer(2).timeout

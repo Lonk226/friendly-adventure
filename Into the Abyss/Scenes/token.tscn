@@ -62,7 +62,7 @@ _data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.692015, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_w5to0"]
-colors = PackedColorArray(1, 1, 1, 0.184314, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0.117647, 1, 1, 1, 0)
 
 [node name="Token" type="Node2D"]
 script = ExtResource("1_w5to0")
@@ -79,7 +79,7 @@ shape = SubResource("CircleShape2D_6hn4i")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 100
+amount = 50
 lifetime = 0.6
 one_shot = true
 explosiveness = 1.0

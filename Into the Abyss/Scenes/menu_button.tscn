@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bj303op5yu1rr" path="res://Assets/Menu Option Side.png" id="4_5uo3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqqcg"]
-size = Vector2(1166, 32)
+size = Vector2(148, 32)
 
 [node name="Menu Button" type="Control" groups=["MenuButton"]]
 layout_mode = 3

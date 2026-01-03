@@ -1,6 +1,6 @@
 extends Node2D
 
-signal bubble_bounce()
+signal bubble_bounce(bubble_location)
 signal token_collected()
 signal sc_start()
 signal sc_end()

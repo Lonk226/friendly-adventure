@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func show_menu():
 	show()
+	on = false
 	$Node2D/ColorRect2.position = Vector2(307,55)
 	var tween = get_tree().create_tween()
 	tween.tween_property($Node2D, "modulate", Color.WHITE, 0.2)

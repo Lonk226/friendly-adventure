@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://byskychux6io3" path="res://Assets/Difficulty Meter.png" id="5_72w8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx4vd"]
-size = Vector2(1194, 30)
+size = Vector2(190, 30)
 
 [node name="Level Select" type="Control" groups=["Level Selector"]]
 layout_mode = 3

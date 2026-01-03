@@ -41,7 +41,6 @@ var can_roll: bool = true
 var long_jumping: bool = false
 var side_flipping: bool = false
 var diving: bool = false
-var can_dive: bool = false
 var wall_sliding: bool = false
 var ghosting: bool = false
 var roll_buffering: bool = false
@@ -50,6 +49,7 @@ var super_dashing: bool = false
 var bouncing: bool = false
 var frozen: bool = false
 var can_change_dash_dir: bool = false
+var can_dive_after_wall_jump: bool = true
 
 var direct: int = 1
 var dash_dir: Vector2
@@ -178,8 +178,10 @@ func side_flip():
 		velocity.y = 0
 		side_flipping = false
 
-func bubble_bounce():
+func bubble_bounce(bubble_location):
 	reset_states()
+	velocity = Vector2.ZERO
+	global_position = bubble_location
 	camera.apply_shake()
 	bouncing = true
 	velocity.y = jump_speed * 1.6
@@ -187,7 +189,6 @@ func bubble_bounce():
 	animated_sprite.scale = Vector2(0.5, 1.5)
 	rolling = false
 	roll_particles.emitting = false
-	can_dive = true
 	maxed = true
 	goal_value = $"UI/Super Meter".max_value
 	var tween = create_tween()
@@ -258,7 +259,6 @@ func get_the_gravity():
 func reset_coyote_jump():
 	if is_on_floor():
 		can_jump = true
-		can_dive = true
 		$"Coyote Timer".stop()
 	else:
 		if can_jump and $"Coyote Timer".is_stopped():
@@ -294,9 +294,9 @@ func roll():
 			roll_particles.emitting = false
 
 func dive():
-	if roll_buffering and not is_on_floor() and can_dive and not rolling and not wall_sliding and not $RayCast2D.is_colliding() and not $RayCast2D2.is_colliding() and not super_dashing:
+	if roll_buffering and not is_on_floor() and not diving and not rolling and not wall_sliding and not $RayCast2D.is_colliding() and not $RayCast2D2.is_colliding()\
+		and not super_dashing and can_dive_after_wall_jump:
 		roll_buffering = false
-		can_dive = false
 		reset_states()
 		diving = true
 		boost_charge()
@@ -308,7 +308,8 @@ func dive():
 func wall_sliding_and_jumping():
 	var dir := Input.get_axis("left", "right")
 	$RayCast2D.target_position.x = 16 * direct
-	if ($RayCast2D.is_colliding() and dir and not is_on_floor() and velocity.y > 0 and not wall_sliding) or ((diving) and is_on_wall_only()) or (long_jumping and is_on_wall_only()) and not super_dashing:
+	if ($RayCast2D.is_colliding() and dir and not is_on_floor() and velocity.y > 0 and not wall_sliding) or ((diving) and is_on_wall_only())\
+		or (long_jumping and is_on_wall_only()) and not super_dashing:
 		reset_states()
 		wall_sliding = true
 		flip()
@@ -326,14 +327,15 @@ func wall_sliding_and_jumping():
 			$"Particles/Wall Jump Particles".emitting = true
 			boost_charge()
 			velocity.x = wall_jump_pushback * direct
-			can_dive = true
+			can_dive_after_wall_jump = false
+			await get_tree().create_timer(0.15).timeout
+			can_dive_after_wall_jump = true
 			return
 		if roll_buffering:
 			roll_buffering = false
 			wall_sliding = false
 			buffering = false
 			velocity.x = wall_jump_pushback * direct
-			can_dive = true
 
 func flip():
 	if direct == -1:
@@ -393,7 +395,6 @@ func super_dash():
 	super_dashing = true
 	await get_tree().create_timer(0.25).timeout
 	can_change_dash_dir = false
-	can_dive = true
 	super_dashing = false
 	velocity = velocity/4
 
