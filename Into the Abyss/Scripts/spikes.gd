@@ -3,6 +3,7 @@ extends Area2D
 var upright: bool
 
 @onready var player = get_tree().get_first_node_in_group("Player")
+@onready var camera = get_tree().get_first_node_in_group("Camera")
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -20,17 +21,25 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		singleton.dead = true
+		singleton.cam_disabled = true
 		player.velocity = Vector2.ZERO
 		player.frozen = true
 		var tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(player, "scale", Vector2.ZERO, 0.2)
+		tween.tween_property(player, "scale", Vector2.ZERO, 0.5)
+		singleton.sc_start.emit()
 		await tween.finished
 		tween.kill()
+		camera.global_position = singleton.camera_reset_position
 		player.global_position = singleton.reset_position
+		singleton.dead = false
 		player.reset_states()
+		await get_tree().create_timer(0.1).timeout
 		var tween_2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
-		tween_2.tween_property(player, "scale", Vector2(1,1), 0.2)
+		tween_2.tween_property(player, "scale", Vector2(1,1), 0.5)
+		singleton.sc_end.emit()
 		await tween_2.finished
 		tween_2.kill()
 		player.frozen = false
+		singleton.cam_disabled = false
 		player.scale = Vector2(1,1)

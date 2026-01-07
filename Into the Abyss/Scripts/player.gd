@@ -54,6 +54,7 @@ var can_dive_after_wall_jump: bool = true
 var direct: int = 1
 var dash_dir: Vector2
 var token_num: int = 0
+var safety: int = 0
 
 var particle_pos: Vector2
 
@@ -145,6 +146,11 @@ func _physics_process(delta: float) -> void:
 		$UI/Label.text = str(singleton.full_token_count)
 	else:
 		$UI/Label.text = str(token_num)
+		
+	if singleton.waiting_for_godot and (is_on_floor() and safety == 0) and not singleton.dead:
+		singleton.waiting_for_godot = false
+		singleton.reset_position = global_position
+		singleton.camera_reset_position = camera.global_position
 
 func jump():
 	velocity.y = jump_speed
@@ -426,3 +432,9 @@ func boost_charge():
 	tween.tween_property(self, "charge_value", charge_value + charge_up, 0.07)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
+
+func _on_safe_zone_area_entered(area: Area2D) -> void:
+	safety -= 1
+
+func _on_safe_zone_area_exited(area: Area2D) -> void:
+	safety += 1

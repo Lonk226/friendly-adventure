@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://rif721tfwcm7"]
+[gd_scene load_steps=47 format=3 uid="uid://rif721tfwcm7"]
 
 [ext_resource type="Script" uid="uid://lyicqu5gf04w" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cwib3r5qdmgru" path="res://Assets/The Guy.png" id="3_hqtel"]
@@ -266,6 +266,9 @@ colors = PackedColorArray(1, 1, 1, 0.376471, 1, 1, 1, 0.521569)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(12, 27)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8erm5"]
+size = Vector2(68, 41)
+
 [sub_resource type="Curve" id="Curve_onrkg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.365019, 0.620029), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -317,6 +320,14 @@ target_position = Vector2(16, 0)
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2(0, -1)
 target_position = Vector2(0, 27)
+
+[node name="Safe Zone" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safe Zone"]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_8erm5")
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -444,5 +455,7 @@ vertical_alignment = 1
 
 [connection signal="timeout" from="Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer" to="." method="_on_buffer_timer_timeout"]
-[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_2_timeout"]
 [connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
+[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_2_timeout"]
+[connection signal="area_entered" from="Safe Zone" to="." method="_on_safe_zone_area_entered"]
+[connection signal="area_exited" from="Safe Zone" to="." method="_on_safe_zone_area_exited"]
