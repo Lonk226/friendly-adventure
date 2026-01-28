@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://c6fs4fy8b67e6"]
+[gd_scene load_steps=3 format=4 uid="uid://c6fs4fy8b67e6"]
 
 [ext_resource type="PackedScene" uid="uid://c81f2axihuklg" path="res://Scenes/level_template.tscn" id="1_l72cd"]
+[ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="2_buj6i"]
 
 [node name="Over and Up" instance=ExtResource("1_l72cd")]
 
@@ -16,3 +17,247 @@ tile_map_data = PackedByteArray("AAD8/wIABAAAAAAAAAD9/wIAAgACAAAAAAD+/wIAAgAAAAA
 
 [node name="Player" parent="." index="4"]
 position = Vector2(-267, 121)
+
+[node name="Label" type="Label" parent="." index="5"]
+offset_left = -303.0
+offset_top = -31.0
+offset_right = -184.0
+offset_bottom = -8.0
+theme_override_fonts/font = ExtResource("2_buj6i")
+text = "Arrow Keys to move"
+
+[node name="Label7" type="Label" parent="." index="6"]
+offset_left = -121.0
+offset_top = -64.0
+offset_right = -27.0
+offset_bottom = -41.0
+theme_override_fonts/font = ExtResource("2_buj6i")
+text = "Press X to jump"
+
+[node name="Label2" type="Label" parent="." index="7"]
+offset_left = 461.0
+offset_top = -71.0
+offset_right = 639.0
+offset_bottom = -48.0
+theme_override_fonts/font = ExtResource("2_buj6i")
+text = "Press C on the ground to roll"
+
+[node name="Label3" type="Label" parent="." index="8"]
+offset_left = 808.0
+offset_top = -96.0
+offset_right = 1010.0
+offset_bottom = -73.0
+theme_override_fonts/font = ExtResource("2_buj6i")
+text = "Roll + Jump makes you long jump"
+
+[node name="Label4" type="Label" parent="." index="9"]
+offset_left = 1458.0
+offset_top = -105.0
+offset_right = 1660.0
+offset_bottom = -82.0
+theme_override_fonts/font = ExtResource("2_buj6i")
+text = "Press C in the air to dive"
+
+[node name="Label5" type="Label" parent="." index="10"]
+offset_left = 2195.0
+offset_top = -127.0
+offset_right = 2415.0
+offset_bottom = -104.0
+theme_override_fonts/font = ExtResource("2_buj6i")
+text = "Jump while wall sliding to wall jump"
+
+[node name="Label6" type="Label" parent="." index="11"]
+offset_left = 2192.0
+offset_top = -552.0
+offset_right = 2492.0
+offset_bottom = -517.0
+theme_override_fonts/font = ExtResource("2_buj6i")
+text = "Press Z when the meter at the top of your screen
+ is full to do a directional dash"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Ground/Spikes" to="Ground/Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31433" to="Ground/@Area2D@31433" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31434" to="Ground/@Area2D@31434" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31435" to="Ground/@Area2D@31435" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31436" to="Ground/@Area2D@31436" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31437" to="Ground/@Area2D@31437" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31438" to="Ground/@Area2D@31438" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31439" to="Ground/@Area2D@31439" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31440" to="Ground/@Area2D@31440" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31441" to="Ground/@Area2D@31441" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31442" to="Ground/@Area2D@31442" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31443" to="Ground/@Area2D@31443" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31444" to="Ground/@Area2D@31444" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31445" to="Ground/@Area2D@31445" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31446" to="Ground/@Area2D@31446" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31447" to="Ground/@Area2D@31447" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31448" to="Ground/@Area2D@31448" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31449" to="Ground/@Area2D@31449" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31450" to="Ground/@Area2D@31450" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31451" to="Ground/@Area2D@31451" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31452" to="Ground/@Area2D@31452" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31453" to="Ground/@Area2D@31453" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31454" to="Ground/@Area2D@31454" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31455" to="Ground/@Area2D@31455" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31456" to="Ground/@Area2D@31456" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31457" to="Ground/@Area2D@31457" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31458" to="Ground/@Area2D@31458" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31459" to="Ground/@Area2D@31459" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31460" to="Ground/@Area2D@31460" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31461" to="Ground/@Area2D@31461" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31462" to="Ground/@Area2D@31462" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31463" to="Ground/@Area2D@31463" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31464" to="Ground/@Area2D@31464" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31465" to="Ground/@Area2D@31465" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31466" to="Ground/@Area2D@31466" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31467" to="Ground/@Area2D@31467" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31468" to="Ground/@Area2D@31468" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31469" to="Ground/@Area2D@31469" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31470" to="Ground/@Area2D@31470" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31471" to="Ground/@Area2D@31471" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31472" to="Ground/@Area2D@31472" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31473" to="Ground/@Area2D@31473" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31474" to="Ground/@Area2D@31474" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31475" to="Ground/@Area2D@31475" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31476" to="Ground/@Area2D@31476" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31477" to="Ground/@Area2D@31477" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31478" to="Ground/@Area2D@31478" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31479" to="Ground/@Area2D@31479" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31480" to="Ground/@Area2D@31480" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31481" to="Ground/@Area2D@31481" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31482" to="Ground/@Area2D@31482" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31483" to="Ground/@Area2D@31483" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31484" to="Ground/@Area2D@31484" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31485" to="Ground/@Area2D@31485" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31486" to="Ground/@Area2D@31486" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31487" to="Ground/@Area2D@31487" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31488" to="Ground/@Area2D@31488" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31489" to="Ground/@Area2D@31489" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31490" to="Ground/@Area2D@31490" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31491" to="Ground/@Area2D@31491" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31492" to="Ground/@Area2D@31492" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31493" to="Ground/@Area2D@31493" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31494" to="Ground/@Area2D@31494" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31495" to="Ground/@Area2D@31495" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31496" to="Ground/@Area2D@31496" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31497" to="Ground/@Area2D@31497" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31498" to="Ground/@Area2D@31498" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31499" to="Ground/@Area2D@31499" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31500" to="Ground/@Area2D@31500" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31501" to="Ground/@Area2D@31501" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31502" to="Ground/@Area2D@31502" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31503" to="Ground/@Area2D@31503" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31504" to="Ground/@Area2D@31504" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31505" to="Ground/@Area2D@31505" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31506" to="Ground/@Area2D@31506" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31507" to="Ground/@Area2D@31507" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31508" to="Ground/@Area2D@31508" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31509" to="Ground/@Area2D@31509" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31510" to="Ground/@Area2D@31510" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31511" to="Ground/@Area2D@31511" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31512" to="Ground/@Area2D@31512" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31513" to="Ground/@Area2D@31513" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31514" to="Ground/@Area2D@31514" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31515" to="Ground/@Area2D@31515" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31516" to="Ground/@Area2D@31516" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31517" to="Ground/@Area2D@31517" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31518" to="Ground/@Area2D@31518" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31519" to="Ground/@Area2D@31519" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31520" to="Ground/@Area2D@31520" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31521" to="Ground/@Area2D@31521" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31522" to="Ground/@Area2D@31522" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31523" to="Ground/@Area2D@31523" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31524" to="Ground/@Area2D@31524" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31525" to="Ground/@Area2D@31525" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31526" to="Ground/@Area2D@31526" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31527" to="Ground/@Area2D@31527" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31528" to="Ground/@Area2D@31528" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31529" to="Ground/@Area2D@31529" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31530" to="Ground/@Area2D@31530" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31531" to="Ground/@Area2D@31531" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31532" to="Ground/@Area2D@31532" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31533" to="Ground/@Area2D@31533" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31534" to="Ground/@Area2D@31534" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31535" to="Ground/@Area2D@31535" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31536" to="Ground/@Area2D@31536" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31537" to="Ground/@Area2D@31537" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31538" to="Ground/@Area2D@31538" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31539" to="Ground/@Area2D@31539" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31540" to="Ground/@Area2D@31540" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31541" to="Ground/@Area2D@31541" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31542" to="Ground/@Area2D@31542" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31543" to="Ground/@Area2D@31543" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31544" to="Ground/@Area2D@31544" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31545" to="Ground/@Area2D@31545" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31546" to="Ground/@Area2D@31546" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31547" to="Ground/@Area2D@31547" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31548" to="Ground/@Area2D@31548" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31549" to="Ground/@Area2D@31549" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31550" to="Ground/@Area2D@31550" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31551" to="Ground/@Area2D@31551" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31552" to="Ground/@Area2D@31552" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31553" to="Ground/@Area2D@31553" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31554" to="Ground/@Area2D@31554" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31555" to="Ground/@Area2D@31555" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31556" to="Ground/@Area2D@31556" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31557" to="Ground/@Area2D@31557" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31558" to="Ground/@Area2D@31558" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31559" to="Ground/@Area2D@31559" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31560" to="Ground/@Area2D@31560" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31561" to="Ground/@Area2D@31561" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31562" to="Ground/@Area2D@31562" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31563" to="Ground/@Area2D@31563" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31564" to="Ground/@Area2D@31564" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31565" to="Ground/@Area2D@31565" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31566" to="Ground/@Area2D@31566" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31567" to="Ground/@Area2D@31567" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31568" to="Ground/@Area2D@31568" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31569" to="Ground/@Area2D@31569" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31570" to="Ground/@Area2D@31570" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31571" to="Ground/@Area2D@31571" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31572" to="Ground/@Area2D@31572" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31573" to="Ground/@Area2D@31573" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31574" to="Ground/@Area2D@31574" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31575" to="Ground/@Area2D@31575" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31576" to="Ground/@Area2D@31576" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31577" to="Ground/@Area2D@31577" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31578" to="Ground/@Area2D@31578" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31579" to="Ground/@Area2D@31579" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31580" to="Ground/@Area2D@31580" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31581" to="Ground/@Area2D@31581" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31582" to="Ground/@Area2D@31582" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31583" to="Ground/@Area2D@31583" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31584" to="Ground/@Area2D@31584" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31585" to="Ground/@Area2D@31585" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31586" to="Ground/@Area2D@31586" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31587" to="Ground/@Area2D@31587" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31588" to="Ground/@Area2D@31588" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31589" to="Ground/@Area2D@31589" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31590" to="Ground/@Area2D@31590" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31591" to="Ground/@Area2D@31591" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31592" to="Ground/@Area2D@31592" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31593" to="Ground/@Area2D@31593" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31594" to="Ground/@Area2D@31594" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31595" to="Ground/@Area2D@31595" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31596" to="Ground/@Area2D@31596" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31597" to="Ground/@Area2D@31597" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31598" to="Ground/@Area2D@31598" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31599" to="Ground/@Area2D@31599" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31600" to="Ground/@Area2D@31600" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31601" to="Ground/@Area2D@31601" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31602" to="Ground/@Area2D@31602" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31603" to="Ground/@Area2D@31603" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31604" to="Ground/@Area2D@31604" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31605" to="Ground/@Area2D@31605" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31606" to="Ground/@Area2D@31606" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31607" to="Ground/@Area2D@31607" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31608" to="Ground/@Area2D@31608" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31609" to="Ground/@Area2D@31609" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31610" to="Ground/@Area2D@31610" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31611" to="Ground/@Area2D@31611" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31612" to="Ground/@Area2D@31612" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31613" to="Ground/@Area2D@31613" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31614" to="Ground/@Area2D@31614" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/@Area2D@31615" to="Ground/@Area2D@31615" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground/Level End" to="Ground/Level End" method="_on_body_entered"]
