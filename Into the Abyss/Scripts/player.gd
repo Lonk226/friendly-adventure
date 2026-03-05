@@ -27,9 +27,9 @@ var side_flip_acceleration: float = 50
 var wall_jump_pushback: float = 350
 var dive_gravity: float = 1400
 var roll_gravity: float = 600
-var charge_value: float = 0
-var charge_up: float = 400
-var goal_value: float = 0
+var charge_value: float = 2000
+var charge_up: float = 670
+var goal_value: float = 2000
 var super_dash_speed: float = 1000
 
 var facing_left: bool = false
@@ -399,7 +399,7 @@ func super_dash():
 	maxed = false
 	reset_states()
 	super_dashing = true
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.20).timeout
 	can_change_dash_dir = false
 	super_dashing = false
 	velocity = velocity/4
