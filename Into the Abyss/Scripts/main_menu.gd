@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			singleton.sc_start.emit()
 			$"VBoxContainer/New Game".select()
 			await get_tree().create_timer(0.5).timeout
-			get_tree().change_scene_to_file('res://Scenes/the_lab.tscn')
+			get_tree().change_scene_to_file('res://Scenes/Levels/tutorial.tscn')
 		elif $"VBoxContainer/Load Game".highlighted:
 			ScreenTransition.color_rect.position.x = 0
 			singleton.sc_start.emit()

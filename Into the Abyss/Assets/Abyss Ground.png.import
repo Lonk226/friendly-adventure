@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfnu26r03ylxv"
-path="res://.godot/imported/Ground1.png-e24f21c16b72b030536cbc431ba0c731.ctex"
+uid="uid://bs75brix2if3f"
+path="res://.godot/imported/Abyss Ground.png-e22fe19c123e4f4120eea691b039027b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ground1.png"
-dest_files=["res://.godot/imported/Ground1.png-e24f21c16b72b030536cbc431ba0c731.ctex"]
+source_file="res://Assets/Abyss Ground.png"
+dest_files=["res://.godot/imported/Abyss Ground.png-e22fe19c123e4f4120eea691b039027b.ctex"]
 
 [params]
 

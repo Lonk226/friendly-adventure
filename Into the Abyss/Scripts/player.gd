@@ -50,6 +50,7 @@ var bouncing: bool = false
 var frozen: bool = false
 var can_change_dash_dir: bool = false
 var can_dive_after_wall_jump: bool = true
+var in_control: bool = false
 
 var direct: int = 1
 var dash_dir: Vector2
@@ -67,10 +68,10 @@ func _physics_process(delta: float) -> void:
 		var dir := Input.get_axis("left", "right")
 		if not is_on_floor() and not super_dashing:
 			velocity.y += get_the_gravity() * delta
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") and in_control:
 			buffering = true
 			$"Buffer Timer".start()
-		if Input.is_action_just_pressed("roll"):
+		if Input.is_action_just_pressed("roll") and in_control:
 			roll_buffering = true
 			$"Buffer Timer 2".start()
 		if buffering and can_jump and not super_dashing:
@@ -87,10 +88,10 @@ func _physics_process(delta: float) -> void:
 			buffering = false
 		if velocity.y > terminal_velocity and not super_dashing:
 			velocity.y = terminal_velocity
-		if Input.is_action_just_released("jump") and velocity.y < 0 and not side_flipping and not long_jumping and not diving and not super_dashing and not bouncing:
+		if Input.is_action_just_released("jump") and velocity.y < 0 and not side_flipping and not long_jumping and not diving and not super_dashing and not bouncing and in_control:
 			velocity.y = 0
 		if not diving and not super_dashing:
-			if dir:
+			if dir and in_control:
 				if is_on_floor():
 					if dir == 1:
 						velocity.x = min(velocity.x + acceleration, ground_speed)
@@ -142,10 +143,7 @@ func _physics_process(delta: float) -> void:
 	particle_anim()
 	ghost_effect()
 	
-	if get_tree().current_scene.scene_file_path == "res://Scenes/the_lab.tscn":
-		$UI/Label.text = str(singleton.full_token_count)
-	else:
-		$UI/Label.text = str(token_num)
+	$UI/Label.text = str(token_num)
 		
 	if singleton.waiting_for_godot and (is_on_floor() and safety == 0) and not singleton.dead:
 		singleton.waiting_for_godot = false
@@ -210,7 +208,7 @@ func play_anim(delta):
 			animated_sprite.play("Super")
 		elif rolling:
 			animated_sprite.play("Roll")
-		elif dir and not frozen:
+		elif dir and not frozen and in_control:
 			animated_sprite.play("Walk")
 		else:
 			animated_sprite.play("Idle")
@@ -229,10 +227,10 @@ func play_anim(delta):
 			animated_sprite.play("Jump")
 		else:
 			animated_sprite.play("Fall")
-	if dir == 1 and not rolling and not long_jumping and not diving and not wall_sliding and not frozen:
+	if dir == 1 and not rolling and not long_jumping and not diving and not wall_sliding and not frozen and in_control:
 		facing_left = false
 		direct = 1
-	elif dir == -1 and not rolling and not long_jumping and not diving and not wall_sliding and not frozen:
+	elif dir == -1 and not rolling and not long_jumping and not diving and not wall_sliding and not frozen and in_control:
 		facing_left = true
 		direct = -1
 	animated_sprite.scale.x = move_toward(animated_sprite.scale.x, 1, 2 * delta)
@@ -374,7 +372,7 @@ func handle_meter(delta):
 		charge_value = $"UI/Super Meter".max_value
 	if charge_value == $"UI/Super Meter".max_value and not maxed:
 		maxed = true
-	if Input.is_action_just_pressed("super_dash") and maxed:
+	if Input.is_action_just_pressed("super_dash") and maxed and in_control:
 		dash_dir = super_dash_dir()
 		if wall_sliding and not Input.is_action_pressed("down") and not Input.is_action_pressed("up"):
 			dash_dir.x = direct

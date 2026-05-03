@@ -264,7 +264,7 @@ point_count = 2
 colors = PackedColorArray(1, 1, 1, 0.376471, 1, 1, 1, 0.521569)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(12, 27)
+size = Vector2(12, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8erm5"]
 size = Vector2(68, 41)
@@ -299,7 +299,7 @@ gradient = SubResource("Gradient_sweqy")
 script = ExtResource("3_sweqy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Coyote Timer" type="Timer" parent="."]

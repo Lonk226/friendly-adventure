@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _on_camera_move_up_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and not singleton.cam_disabled:
-		cam_transition(self, "global_position", Vector2(global_position.x, global_position.y - (432)), 0.5)
+		cam_transition(self, "global_position", Vector2(global_position.x, global_position.y - (448)), 0.5)
 		player.frozen = true
 		cam_transition(player, "global_position", Vector2(player.global_position.x, player.global_position.y - player_offset), 0.5)
 		await get_tree().create_timer(0.6).timeout
@@ -35,7 +35,7 @@ func _on_camera_move_up_body_entered(body: Node2D) -> void:
 
 func _on_camera_move_down_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and not singleton.cam_disabled:
-		cam_transition(self, "global_position", Vector2(global_position.x, global_position.y + (432)), 0.5)
+		cam_transition(self, "global_position", Vector2(global_position.x, global_position.y + (448)), 0.5)
 		player.frozen = true
 		cam_transition(player, "global_position", Vector2(player.global_position.x, player.global_position.y + player_offset), 0.5)
 		await get_tree().create_timer(0.6).timeout
