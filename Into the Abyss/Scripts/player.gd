@@ -51,6 +51,7 @@ var frozen: bool = false
 var can_change_dash_dir: bool = false
 var can_dive_after_wall_jump: bool = true
 var in_control: bool = false
+var was_in_control: bool = false
 
 var direct: int = 1
 var dash_dir: Vector2
@@ -142,6 +143,7 @@ func _physics_process(delta: float) -> void:
 	play_anim(delta)
 	particle_anim()
 	ghost_effect()
+	set_hud_visibility()
 	
 	$UI/Label.text = str(token_num)
 		
@@ -436,3 +438,37 @@ func _on_safe_zone_area_entered(area: Area2D) -> void:
 
 func _on_safe_zone_area_exited(area: Area2D) -> void:
 	safety += 1
+
+func set_hud_visibility():
+	if not in_control:
+		if was_in_control:
+			var tween = get_tree().create_tween()
+			tween.tween_property($"UI/Super Meter", "modulate", Color.TRANSPARENT, 0.5)
+			tween.tween_property($"UI/ProgressBarBg", "modulate", Color.TRANSPARENT, 0.15)
+			tween.tween_property($"UI/Ui", "modulate", Color.TRANSPARENT, 0.15)
+			tween.tween_property($"UI/Sprite2D2", "modulate", Color.TRANSPARENT, 0.25)
+			tween.tween_property($"UI/Label", "modulate", Color.TRANSPARENT, 0.25)
+			await get_tree().create_timer(0.25).timeout
+			was_in_control = false
+		else:
+			$"UI/Super Meter".modulate = Color.TRANSPARENT
+			$"UI/ProgressBarBg".modulate = Color.TRANSPARENT
+			$"UI/Ui".modulate = Color.TRANSPARENT
+			$"UI/Sprite2D2".modulate = Color.TRANSPARENT
+			$"UI/Label".modulate = Color.TRANSPARENT
+	elif in_control:
+		if not was_in_control:
+			var tween = get_tree().create_tween()
+			tween.tween_property($"UI/Super Meter", "modulate", Color.WHITE, 0.5)
+			tween.tween_property($"UI/ProgressBarBg", "modulate", Color.WHITE, 0.15)
+			tween.tween_property($"UI/Ui", "modulate", Color.WHITE, 0.15)
+			tween.tween_property($"UI/Sprite2D2", "modulate", Color.WHITE, 0.25)
+			tween.tween_property($"UI/Label", "modulate", Color.WHITE, 0.25)
+			await get_tree().create_timer(0.25).timeout
+			was_in_control = true
+		else:
+			$"UI/Super Meter".modulate = Color.WHITE
+			$"UI/ProgressBarBg".modulate = Color.WHITE
+			$"UI/Ui".modulate = Color.WHITE
+			$"UI/Sprite2D2".modulate = Color.WHITE
+			$"UI/Label".modulate = Color.WHITE
