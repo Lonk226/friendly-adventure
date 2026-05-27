@@ -27,9 +27,9 @@ var side_flip_acceleration: float = 50
 var wall_jump_pushback: float = 350
 var dive_gravity: float = 1400
 var roll_gravity: float = 600
-var charge_value: float = 2000
+var charge_value: float = 0
 var charge_up: float = 670
-var goal_value: float = 2000
+var goal_value: float = 0
 var super_dash_speed: float = 1000
 
 var facing_left: bool = false
@@ -115,14 +115,16 @@ func _physics_process(delta: float) -> void:
 				if long_jumping:
 					long_jumping = false
 					velocity.x = 230 * direct
+					reset_states()
 				if diving:
 					if not dir:
 						velocity.x = dir * 1000
 					diving = false
+					reset_states()
 				if super_dashing:
 					super_dashing = false
 					velocity = velocity/4
-				reset_states()
+					reset_states()
 			on_ground = true
 		else:
 			on_ground = false
@@ -380,7 +382,7 @@ func handle_meter(delta):
 		super_dash()
 		goal_value = 0
 		var tween = create_tween()
-		tween.tween_property(self, "charge_value", 0, 0.1)
+		tween.tween_property(self, "charge_value", 0, 0.2)
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_QUAD)
 		await get_tree().create_timer(0.05).timeout
@@ -428,7 +430,7 @@ func boost_charge():
 	charge_value = goal_value
 	goal_value += charge_up
 	var tween = create_tween()
-	tween.tween_property(self, "charge_value", charge_value + charge_up, 0.07)
+	tween.tween_property(self, "charge_value", charge_value + charge_up, 0.1)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
 
@@ -440,6 +442,19 @@ func _on_safe_zone_area_exited(area: Area2D) -> void:
 
 func set_hud_visibility():
 	if in_control:
-		$"UI".visible = true
+		if not $"UI".visible == true:
+			$"UI/Super Meter".scale.x = 0
+			$UI/ProgressBarBg.scale.x = 0
+			$"UI".visible = true
+			var tween = get_tree().create_tween()
+			var tween2 = get_tree().create_tween()
+			tween.tween_property($"UI/Super Meter", "scale", Vector2(1, 1), 0.25)
+			tween2.tween_property($"UI/ProgressBarBg", "scale", Vector2(1, 1), 0.25)
 	else:
-		$"UI".visible = false
+		if $"UI".visible == true:
+			var tween = get_tree().create_tween()
+			var tween2 = get_tree().create_tween()
+			tween.tween_property($"UI/Super Meter", "scale", Vector2(0, 1), 0.25)
+			tween2.tween_property($"UI/ProgressBarBg", "scale", Vector2(0, 1), 0.25)
+			await get_tree().create_timer(0.25).timeout
+			$"UI".visible = false

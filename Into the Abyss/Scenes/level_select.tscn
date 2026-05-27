@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlk5wry7o6fbj" path="res://Scripts/level_select.gd" id="1_lx4vd"]
 [ext_resource type="Texture2D" uid="uid://bfq2v0i63k02w" path="res://Assets/Level Select Option.png" id="2_2sqnl"]
 [ext_resource type="Texture2D" uid="uid://16h5818pl6mo" path="res://Assets/Level Select Option Side.png" id="3_72w8f"]
-[ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="4_2sqnl"]
+[ext_resource type="FontFile" uid="uid://d16yrwr5mbcm" path="res://Assets/ITB.ttf" id="4_72w8f"]
 [ext_resource type="Texture2D" uid="uid://byskychux6io3" path="res://Assets/Difficulty Meter.png" id="5_72w8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx4vd"]
@@ -35,7 +35,7 @@ offset_left = -52.0
 offset_top = -24.0
 offset_right = 52.0
 offset_bottom = 22.0
-theme_override_fonts/font = ExtResource("4_2sqnl")
+theme_override_fonts/font = ExtResource("4_72w8f")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -50,7 +50,7 @@ offset_left = 177.0
 offset_top = -11.0
 offset_right = 287.0
 offset_bottom = 12.0
-theme_override_fonts/font = ExtResource("4_2sqnl")
+theme_override_fonts/font = ExtResource("4_72w8f")
 horizontal_alignment = 1
 vertical_alignment = 1
 

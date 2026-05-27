@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://nnoyue8pxkwi"]
 
 [ext_resource type="Script" uid="uid://cgo3w1yn1o0f2" path="res://Scripts/menu_button.gd" id="1_yqqcg"]
-[ext_resource type="FontFile" uid="uid://kdcbc3ituc73" path="res://Assets/Alkhemikal.ttf" id="2_w11kp"]
+[ext_resource type="FontFile" uid="uid://d16yrwr5mbcm" path="res://Assets/ITB.ttf" id="2_5uo3s"]
 [ext_resource type="Texture2D" uid="uid://ckrstwnhf7gyj" path="res://Assets/Menu Option.png" id="3_w11kp"]
 [ext_resource type="Texture2D" uid="uid://bj303op5yu1rr" path="res://Assets/Menu Option Side.png" id="4_5uo3s"]
 
@@ -23,8 +23,7 @@ offset_top = -12.0
 offset_right = 48.0
 offset_bottom = 12.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_w11kp")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("2_5uo3s")
 horizontal_alignment = 1
 vertical_alignment = 1
 

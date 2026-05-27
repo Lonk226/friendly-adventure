@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ggymb71tjo1c" path="res://Scripts/title_screen.gd" id="1_4gxqj"]
 [ext_resource type="Texture2D" uid="uid://bay840aoft0cw" path="res://Assets/title.png" id="1_klylv"]
-[ext_resource type="FontFile" uid="uid://cwcju0qnh4dxd" path="res://Assets/Pixeled.ttf" id="2_p3fck"]
+[ext_resource type="FontFile" uid="uid://d16yrwr5mbcm" path="res://Assets/ITB.ttf" id="3_4gxqj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gxqj"]
 bg_color = Color(0, 0, 0, 1)
@@ -178,9 +178,10 @@ offset_right = 74.0
 offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_p3fck")
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("3_4gxqj")
 text = "Press Any Button"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

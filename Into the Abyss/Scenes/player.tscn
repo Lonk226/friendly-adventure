@@ -413,36 +413,41 @@ scale_amount_curve = SubResource("Curve_onrkg")
 color_ramp = SubResource("Gradient_hqtel")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Super Meter" type="ProgressBar" parent="UI"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -112.0
+offset_left = -117.0
 offset_top = 16.0
-offset_right = 112.0
+offset_right = 117.0
 offset_bottom = 41.0
 grow_horizontal = 2
+pivot_offset = Vector2(112, 12.5)
 theme_override_styles/background = SubResource("StyleBoxFlat_hqtel")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sweqy")
 max_value = 2000.0
 show_percentage = false
 
 [node name="ProgressBarBg" type="Sprite2D" parent="UI"]
-position = Vector2(384, 28.5)
+position = Vector2(384, 26)
 texture = ExtResource("5_8erm5")
 
 [node name="Ui" type="Sprite2D" parent="UI"]
+visible = false
 position = Vector2(57, 398)
 texture = ExtResource("5_fkybt")
 
 [node name="Sprite2D2" type="Sprite2D" parent="UI"]
+visible = false
 position = Vector2(41, 398)
 texture = ExtResource("6_x3wgy")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="Label" type="Label" parent="UI"]
+visible = false
 offset_left = 47.0
 offset_top = 384.0
 offset_right = 87.0
