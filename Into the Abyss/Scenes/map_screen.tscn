@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2unhdaaou3r2"]
+[gd_scene load_steps=3 format=3 uid="uid://d2unhdaaou3r2"]
 
 [ext_resource type="Script" uid="uid://dr7vucjxpdaf" path="res://Scripts/map_screen.gd" id="1_01v1l"]
+[ext_resource type="Texture2D" uid="uid://bpe2jj8vsbeqg" path="res://Assets/Map Screen.png" id="2_8g36y"]
 
 [node name="Map Screen" type="Node2D"]
 script = ExtResource("1_01v1l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(384, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(384, 448)
+texture = ExtResource("2_8g36y")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(384, 672)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(384, 224)

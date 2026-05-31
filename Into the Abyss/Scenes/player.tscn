@@ -460,7 +460,7 @@ vertical_alignment = 1
 
 [connection signal="timeout" from="Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Buffer Timer" to="." method="_on_buffer_timer_timeout"]
-[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_2_timeout"]
 [connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_timeout"]
+[connection signal="timeout" from="Buffer Timer 2" to="." method="_on_buffer_timer_2_timeout"]
 [connection signal="area_entered" from="Safe Zone" to="." method="_on_safe_zone_area_entered"]
 [connection signal="area_exited" from="Safe Zone" to="." method="_on_safe_zone_area_exited"]

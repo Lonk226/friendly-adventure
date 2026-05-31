@@ -146,7 +146,6 @@ shape = SubResource("RectangleShape2D_mhlsa")
 position = Vector2(1701.5, 1487.5)
 shape = SubResource("RectangleShape2D_l2k66")
 
-[connection signal="body_entered" from="Ground/Level End" to="Ground/Level End" method="_on_body_entered"]
 [connection signal="body_entered" from="Tutorial Items/MoveA" to="Tutorial Items" method="_on_move_a_body_entered"]
 [connection signal="body_exited" from="Tutorial Items/MoveA" to="Tutorial Items" method="_on_move_a_body_exited"]
 [connection signal="body_entered" from="Tutorial Items/JumpA" to="Tutorial Items" method="_on_jump_a_body_entered"]

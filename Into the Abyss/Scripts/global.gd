@@ -8,7 +8,8 @@ signal sc_end()
 var reset_position: Vector2
 var camera_reset_position: Vector2
 
-var full_token_count: int = 0
+var full_token_count: int
+var relic_count: int
 
 var waiting_for_godot: bool = false
 var dead: bool = false
