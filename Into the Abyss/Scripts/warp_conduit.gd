@@ -23,6 +23,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		player_on = true
+		player_on = false
 		var tween = get_tree().create_tween()
 		tween.tween_property($"Label", "modulate", Color.TRANSPARENT, 0.25)
