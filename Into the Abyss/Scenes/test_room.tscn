@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://cinsjir5bwvxm"]
+[gd_scene load_steps=7 format=4 uid="uid://cinsjir5bwvxm"]
 
 [ext_resource type="Script" uid="uid://dsqh04748qb5m" path="res://Scripts/test_camera.gd" id="1_6idp7"]
+[ext_resource type="Script" uid="uid://osgpqhe3btpk" path="res://Scripts/test_room.gd" id="1_afs4w"]
 [ext_resource type="PackedScene" uid="uid://rif721tfwcm7" path="res://Scenes/player.tscn" id="2_rx0dc"]
 [ext_resource type="Texture2D" uid="uid://cufo407rbhyc1" path="res://Assets/Test.png" id="3_rx0dc"]
 
@@ -14,6 +15,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_afs4w")
 
 [node name="Test Room" type="Node2D"]
+script = ExtResource("1_afs4w")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
 position_smoothing_enabled = true
